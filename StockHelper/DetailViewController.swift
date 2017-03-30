@@ -54,7 +54,9 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stockDataCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stockDataCell", for: indexPath) as! StockDataCollectionViewCell
+        cell.nameLabel.text = "Hey"
+        cell.valueLabel.text = "Hey"
         
         return cell
         

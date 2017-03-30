@@ -10,6 +10,9 @@ import UIKit
 
 class StockDataCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

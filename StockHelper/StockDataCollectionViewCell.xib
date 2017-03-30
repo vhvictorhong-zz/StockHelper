@@ -56,6 +56,10 @@
                 <constraint firstItem="8OJ-S8-c8c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d42-kc-DuL"/>
                 <constraint firstAttribute="bottom" secondItem="8OJ-S8-c8c" secondAttribute="bottom" id="pcN-Ri-PS9"/>
             </constraints>
+            <connections>
+                <outlet property="nameLabel" destination="yTv-xR-S2f" id="zMp-VI-dsC"/>
+                <outlet property="valueLabel" destination="WuB-Tc-sLc" id="Dxv-U4-x8D"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>
