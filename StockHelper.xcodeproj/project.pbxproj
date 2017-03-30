@@ -15,6 +15,7 @@
 		2B43B25E1E8CA00B00703A11 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */; };
 		2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */; };
 		2B43B26A1E8CA3DA00703A11 /* StockDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */; };
+		2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B43B26D1E8D688400703A11 /* StockManager.swift */; };
 		5FB88A69DE80C1BD175D02B5 /* Pods_StockHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockDataCollectionViewCell.xib; sourceTree = "<group>"; };
+		2B43B26D1E8D688400703A11 /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		4147E58EDDA89830AC40C33A /* Pods-StockHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.release.xcconfig"; sourceTree = "<group>"; };
 		652D3BECF736316F93DC7D05 /* Pods-StockHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
 				2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */,
 				2B43B24C1E8B592500703A11 /* Main.storyboard */,
+				2B43B26D1E8D688400703A11 /* StockManager.swift */,
 				2B43B2521E8B592500703A11 /* Assets.xcassets */,
 				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 				2B43B2571E8B592500703A11 /* Info.plist */,
@@ -224,6 +227,7 @@
 			files = (
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
+				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
 				2B43B25E1E8CA00B00703A11 /* DetailViewController.swift in Sources */,
 				2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */,
 			);

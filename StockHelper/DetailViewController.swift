@@ -12,19 +12,20 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var stock: Stock?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         collectionView.register(UINib(nibName: "StockDataCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockDataCell")
+        StockManager.fetchStockForSymbol(symbol: "F") { (stock) in
+            
+            self.stock = stock
+            self.collectionView.reloadData()
+        }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -42,21 +43,21 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 1
+        return stock != nil ? 18 : 0
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return section == 17 ? 1 : 2
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stockDataCell", for: indexPath) as! StockDataCollectionViewCell
-        cell.nameLabel.text = "Hey"
-        cell.valueLabel.text = "Hey"
+        
+        cell.setData(stock!.dataFields[(indexPath.section * 2) + indexPath.row])
         
         return cell
         
