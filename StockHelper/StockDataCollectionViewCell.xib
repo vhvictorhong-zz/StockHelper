@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StockDataCollectionViewCell" customModule="StockHelper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OJ-S8-c8c">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTv-xR-S2f">
+                                <rect key="frame" x="15" y="11" width="40" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YER-1T-3jF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4325764" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuB-Tc-sLc">
+                                <rect key="frame" x="110" y="11" width="55" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="91d-mD-iy1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yTv-xR-S2f" firstAttribute="leading" secondItem="8OJ-S8-c8c" secondAttribute="leading" constant="15" id="8rU-Yn-YqB"/>
+                            <constraint firstItem="yTv-xR-S2f" firstAttribute="top" secondItem="8OJ-S8-c8c" secondAttribute="top" constant="11" id="VeE-DK-9cZ"/>
+                            <constraint firstItem="WuB-Tc-sLc" firstAttribute="top" secondItem="8OJ-S8-c8c" secondAttribute="top" constant="11" id="uht-LD-nDf"/>
+                            <constraint firstAttribute="trailing" secondItem="WuB-Tc-sLc" secondAttribute="trailing" constant="15" id="zGb-v5-sd7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8OJ-S8-c8c" secondAttribute="trailing" id="Xqg-FY-kEl"/>
+                <constraint firstItem="8OJ-S8-c8c" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Zoh-X6-x6V"/>
+                <constraint firstItem="8OJ-S8-c8c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d42-kc-DuL"/>
+                <constraint firstAttribute="bottom" secondItem="8OJ-S8-c8c" secondAttribute="bottom" id="pcN-Ri-PS9"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+</document>
