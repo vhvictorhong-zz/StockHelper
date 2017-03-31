@@ -48,6 +48,8 @@ class DetailViewController: UIViewController {
 
 }
 
+// MARK: - CollectionViewDelegate, CollectionViewDataSource
+
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

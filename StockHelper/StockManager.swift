@@ -60,6 +60,37 @@ struct Stock {
 
 class StockManager {
     
+// MARK: - fetchStocksFromSearch
+    
+    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResult]) -> ()) {
+        
+        DispatchQueue.global(qos: .default).async {
+            
+            let searchURL = "http://autoc.finance.yahoo.com/autoc"
+            
+            Alamofire.request(searchURL, parameters: ["query": term, "region": 2, "lang": "en"]).responseJSON { response in
+                
+                if let resultJSON = response.result.value as? [String : AnyObject]  {
+                    
+                    if let jsonArray = (resultJSON["ResultSet"] as! [String : AnyObject])["Result"] as? [[String : String]] {
+                        
+                        var stockInfoArray = [StockSearchResult]()
+                        for dictionary in jsonArray {
+                            stockInfoArray.append(StockSearchResult(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
+                        }
+                        
+                        DispatchQueue.main.async {
+                            completion(stockInfoArray)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+// MARK: - fetchStockForSymbol
+    
     class func fetchStockForSymbol(symbol: String, completion:@escaping (_ stock: Stock) -> ()) {
         
         DispatchQueue.global(qos: .default).async {

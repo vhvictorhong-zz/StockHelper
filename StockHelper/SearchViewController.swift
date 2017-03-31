@@ -36,7 +36,23 @@ class SearchViewController: UIViewController {
     }
     */
 
+    // MARK: searchStocks
+    
+    func searchStocks(_ searchText: String) {
+        
+        StockManager.fetchStocksFromSearch(term: searchText) { (stockInfoArray) in
+            
+            self.searchResults = stockInfoArray
+            self.tableView.reloadData()
+            
+        }
+    }
+    
 }
+
+
+
+// MARK: - TableViewDelegate, TableViewDataSource
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -63,7 +79,78 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - SearchBarDelegate
+
 extension SearchViewController: UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let length = searchText.characters.count
+        
+        if length > 0 {
+            searchStocks(searchText)
+        } else {
+            searchResults.removeAll()
+            tableView.reloadData()
+        }
+
+    }
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        searchBar.showsCancelButton = true
+        tableView.reloadData()
+        return true
+        
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        searchBar.showsCancelButton = false
+        tableView.reloadData()
+        return true
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        
+    }
+    
+    // MARK: - SearchBar keyboard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+
+    }
+    
+    func keyboardWillShow(_ sender: Notification) {
+        if let userInfo = sender.userInfo {
+            let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size.height
+            tableViewBottomConstraint.constant = keyboardHeight
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+            })
+            
+        }
+        
+    }
+    
+    func keyboardWillHide(_ sender: Notification) {
+        if sender.userInfo != nil {
+            tableViewBottomConstraint.constant = 0.0
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+            })
+        }
+        
+    }
 }
