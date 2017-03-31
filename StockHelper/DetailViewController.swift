@@ -27,6 +27,15 @@ class DetailViewController: UIViewController {
         
     }
 
+    override func viewDidLayoutSubviews() {
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { fatalError("Expected the collection view to have a UICollectionViewFlowLayout") }
+        
+        layout.itemSize.width = self.view.bounds.size.width / 2.1
+        //layout.itemSize.height = self.view.bounds.size.width / 1.5
+        
+    }
+    
     /*
     // MARK: - Navigation
 

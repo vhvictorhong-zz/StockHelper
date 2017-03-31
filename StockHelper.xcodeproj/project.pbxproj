@@ -16,6 +16,9 @@
 		2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */; };
 		2B43B26A1E8CA3DA00703A11 /* StockDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */; };
 		2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B43B26D1E8D688400703A11 /* StockManager.swift */; };
+		2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */; };
+		2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */; };
+		2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */; };
 		5FB88A69DE80C1BD175D02B5 /* Pods_StockHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockDataCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B43B26D1E8D688400703A11 /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
+		2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
 		4147E58EDDA89830AC40C33A /* Pods-StockHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.release.xcconfig"; sourceTree = "<group>"; };
 		652D3BECF736316F93DC7D05 /* Pods-StockHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,11 +76,14 @@
 			isa = PBXGroup;
 			children = (
 				2B43B2481E8B592500703A11 /* AppDelegate.swift */,
+				2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */,
 				2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */,
+				2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */,
+				2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */,
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
 				2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */,
-				2B43B24C1E8B592500703A11 /* Main.storyboard */,
 				2B43B26D1E8D688400703A11 /* StockManager.swift */,
+				2B43B24C1E8B592500703A11 /* Main.storyboard */,
 				2B43B2521E8B592500703A11 /* Assets.xcassets */,
 				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 				2B43B2571E8B592500703A11 /* Info.plist */,
@@ -130,7 +139,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Victor Hong";
 				TargetAttributes = {
 					2B43B2441E8B592500703A11 = {
@@ -165,6 +174,7 @@
 			files = (
 				2B43B2561E8B592500703A11 /* LaunchScreen.storyboard in Resources */,
 				2B43B26A1E8CA3DA00703A11 /* StockDataCollectionViewCell.xib in Resources */,
+				2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */,
 				2B43B2531E8B592500703A11 /* Assets.xcassets in Resources */,
 				2B43B24E1E8B592500703A11 /* Main.storyboard in Resources */,
 			);
@@ -225,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */,
+				2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */,
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
@@ -295,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -339,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -352,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 652D3BECF736316F93DC7D05 /* Pods-StockHelper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S7KV3J2AMW;
 				INFOPLIST_FILE = StockHelper/Info.plist;
@@ -367,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4147E58EDDA89830AC40C33A /* Pods-StockHelper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S7KV3J2AMW;
 				INFOPLIST_FILE = StockHelper/Info.plist;
