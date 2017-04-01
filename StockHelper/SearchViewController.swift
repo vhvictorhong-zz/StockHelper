@@ -64,19 +64,24 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return searchResults.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as! StockTableViewCell
         
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.symbolLabel.text = searchResults[indexPath.row].symbol
+        cell.companyLabel.text = searchResults[indexPath.row].name
+        let exchange = searchResults[indexPath.row].exchange!
+        let assetType = searchResults[indexPath.row].assetType!
+        cell.infoLabel.text = exchange + "  |  " + assetType
         
         return cell
         
     }
+    
 }
 
 // MARK: - SearchBarDelegate
