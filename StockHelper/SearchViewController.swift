@@ -82,6 +82,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
+        vc.stockSymbol = searchResults[indexPath.row].symbol!
+        navigationController?.pushViewController(vc, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }
 
 // MARK: - SearchBarDelegate

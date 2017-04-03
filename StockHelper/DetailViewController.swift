@@ -12,14 +12,18 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var stockSymbol = String()
     var stock: Stock?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        navigationItem.title = stockSymbol
+        
         collectionView.register(UINib(nibName: "StockDataCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockDataCell")
-        StockManager.fetchStockForSymbol(symbol: "F") { (stock) in
+        StockManager.fetchStockForSymbol(symbol: stockSymbol) { (stock) in
             
             self.stock = stock
             self.collectionView.reloadData()
