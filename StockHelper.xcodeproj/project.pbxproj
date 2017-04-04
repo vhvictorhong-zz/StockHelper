@@ -19,6 +19,9 @@
 		2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */; };
 		2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */; };
 		2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */; };
+		2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */; };
+		2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */; };
+		2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */; };
 		5FB88A69DE80C1BD175D02B5 /* Pods_StockHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
+		2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
+		2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLDataTableViewCell.swift; sourceTree = "<group>"; };
+		2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLDataTableViewCell.xib; sourceTree = "<group>"; };
 		4147E58EDDA89830AC40C33A /* Pods-StockHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.release.xcconfig"; sourceTree = "<group>"; };
 		652D3BECF736316F93DC7D05 /* Pods-StockHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockHelper/Pods-StockHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		67A3AFE1F6BEAF6B8014771E /* Pods_StockHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,8 +84,11 @@
 				2B43B2481E8B592500703A11 /* AppDelegate.swift */,
 				2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */,
 				2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */,
+				2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */,
 				2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */,
 				2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */,
+				2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */,
+				2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */,
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
 				2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */,
 				2B43B26D1E8D688400703A11 /* StockManager.swift */,
@@ -173,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B43B2561E8B592500703A11 /* LaunchScreen.storyboard in Resources */,
+				2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */,
 				2B43B26A1E8CA3DA00703A11 /* StockDataCollectionViewCell.xib in Resources */,
 				2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */,
 				2B43B2531E8B592500703A11 /* Assets.xcassets in Resources */,
@@ -236,7 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */,
+				2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */,
 				2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */,
+				2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */,
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
