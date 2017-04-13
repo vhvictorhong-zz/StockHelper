@@ -11,13 +11,23 @@ import UIKit
 class WatchListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var arrayWL = ["IBM", "AMD", "AKER"]
+    var watchList: [String: Stock]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        watchList = [String: Stock]()
         
         tableView.register(UINib(nibName: "StockWLDataTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "stockWLDataCell")
+        for list in arrayWL {
+            StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
+                self.watchList![list] = stock
+                self.tableView.reloadData()
+            })
+        }
+        
         
     }
 
@@ -43,7 +53,7 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 20
+        return arrayWL.count
         
     }
     
@@ -51,7 +61,11 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockWLDataCell", for: indexPath) as! StockWLDataTableViewCell
         
-        cell.testLabel.text = "\(indexPath.row)"
+        if let stock = watchList?[arrayWL[indexPath.row]] {
+            cell.setData(stock)
+        } else {
+            cell.symbolLabel.text = "Data still loading"
+        }
         
         return cell
         

@@ -10,7 +10,18 @@ import UIKit
 
 class StockWLDataTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var percentChangeLabel: UILabel!
+    
+    func setData(_ stockData: Stock) {
+        
+        symbolLabel.text = stockData.symbol
+        companyLabel.text = stockData.companyName
+        //priceLabel.text = stockData.
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
