@@ -37,6 +37,7 @@ struct Stock {
     var lastTradeDate: String?
     var last: String?
     var lastTradeTime: String?
+    var lastTradePrice: String?
     var marketCap: String?
     var companyName: String?
     var oneYearTarget: String?
@@ -125,6 +126,7 @@ class StockManager {
                         dataFields.append(["Last Trade Date" : stockData["LastTradeDate"] as? String ?? "N/A"])
                         dataFields.append(["Last" : stockData["LastTradePriceOnly"] as? String ?? "N/A"])
                         dataFields.append(["Last Trade Time" : stockData["LastTradeTime"] as? String ?? "N/A"])
+                        dataFields.append(["Last Trade Price" : stockData["LastTradePriceOnly"] as? String ?? "N/A"])
                         dataFields.append(["Market Cap" : stockData["MarketCapitalization"] as? String ?? "N/A"])
                         dataFields.append(["Company" : stockData["Name"] as? String ?? "N/A"])
                         dataFields.append(["One Yr Target" : stockData["OneyrTargetPrice"] as? String ?? "N/A"])
@@ -162,22 +164,23 @@ class StockManager {
                             lastTradeDate: dataFields[16].values.first,
                             last: dataFields[17].values.first,
                             lastTradeTime: dataFields[18].values.first,
-                            marketCap: dataFields[19].values.first,
-                            companyName: dataFields[20].values.first,
-                            oneYearTarget: dataFields[21].values.first,
-                            open: dataFields[22].values.first,
-                            pegRatio: dataFields[23].values.first,
-                            peRatio: dataFields[24].values.first,
-                            previousClose: dataFields[25].values.first,
-                            priceBook: dataFields[26].values.first,
-                            priceSales: dataFields[27].values.first,
-                            shortRatio: dataFields[28].values.first,
-                            stockExchange: dataFields[29].values.first,
-                            symbol: dataFields[30].values.first,
-                            twoHundreddayMovingAverage: dataFields[31].values.first,
-                            volume: dataFields[32].values.first,
-                            yearHigh: dataFields[33].values.first,
-                            yearLow: dataFields[34].values.first,
+                            lastTradePrice: dataFields[19].values.first,
+                            marketCap: dataFields[20].values.first,
+                            companyName: dataFields[21].values.first,
+                            oneYearTarget: dataFields[22].values.first,
+                            open: dataFields[23].values.first,
+                            pegRatio: dataFields[24].values.first,
+                            peRatio: dataFields[25].values.first,
+                            previousClose: dataFields[26].values.first,
+                            priceBook: dataFields[27].values.first,
+                            priceSales: dataFields[28].values.first,
+                            shortRatio: dataFields[29].values.first,
+                            stockExchange: dataFields[30].values.first,
+                            symbol: dataFields[31].values.first,
+                            twoHundreddayMovingAverage: dataFields[32].values.first,
+                            volume: dataFields[33].values.first,
+                            yearHigh: dataFields[34].values.first,
+                            yearLow: dataFields[35].values.first,
                             dataFields: dataFields
                         )
                         

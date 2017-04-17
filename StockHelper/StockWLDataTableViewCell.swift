@@ -19,7 +19,7 @@ class StockWLDataTableViewCell: UITableViewCell {
         
         symbolLabel.text = stockData.symbol
         companyLabel.text = stockData.companyName
-        //priceLabel.text = stockData.
+        //priceLabel.text = stockData.lastTrad
         
     }
     
