@@ -19,6 +19,7 @@
 		2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */; };
 		2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */; };
 		2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */; };
+		2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B837F551EB9059E001627D4 /* GoogleService-Info.plist */; };
 		2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */; };
 		2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */; };
 		2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */; };
@@ -40,6 +41,7 @@
 		2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
+		2B837F551EB9059E001627D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLDataTableViewCell.swift; sourceTree = "<group>"; };
 		2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLDataTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				2B43B2521E8B592500703A11 /* Assets.xcassets */,
 				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 				2B43B2571E8B592500703A11 /* Info.plist */,
+				2B837F551EB9059E001627D4 /* GoogleService-Info.plist */,
 				2B43B24F1E8B592500703A11 /* StockHelper.xcdatamodeld */,
 			);
 			path = StockHelper;
@@ -187,6 +190,7 @@
 				2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */,
 				2B43B2531E8B592500703A11 /* Assets.xcassets in Resources */,
 				2B43B24E1E8B592500703A11 /* Main.storyboard in Resources */,
+				2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +380,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 652D3BECF736316F93DC7D05 /* Pods-StockHelper.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S7KV3J2AMW;
 				INFOPLIST_FILE = StockHelper/Info.plist;
@@ -392,7 +396,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4147E58EDDA89830AC40C33A /* Pods-StockHelper.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S7KV3J2AMW;
 				INFOPLIST_FILE = StockHelper/Info.plist;
