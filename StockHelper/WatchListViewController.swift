@@ -97,7 +97,6 @@ class WatchListViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         _refHandle = ref.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
-//            self.userList.append(snapshot)
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
             self.userList = list
