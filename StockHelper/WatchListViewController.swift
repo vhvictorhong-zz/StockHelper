@@ -18,8 +18,8 @@ class WatchListViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIBarButtonItem!
 
     
-    var arrayWL = ["IBM", "AMD", "AKER"]
-    var watchList: [String: Stock]?
+    var userList: [String] = []
+    var watchList: [String: Stock] = [String: Stock]()
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
@@ -34,16 +34,7 @@ class WatchListViewController: UIViewController {
       
         configureAuth()
         
-        watchList = [String: Stock]()
-        
         tableView.register(UINib(nibName: "StockWLDataTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "stockWLDataCell")
-        
-//        for list in arrayWL {
-//            StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
-//                self.watchList![list] = stock
-//                self.tableView.reloadData()
-//            })
-//        }
         
         
     }
@@ -52,7 +43,7 @@ class WatchListViewController: UIViewController {
     
     @IBAction func randomButton(_ sender: Any) {
         
-        ref.child("user").child((user?.uid)!).setValue(["list": arrayWL])
+        //ref.child("user").child((user?.uid)!).setValue(["list": arrayWL])
 
         //ref.child(displayName).setValue(["number": arrayWL])
 
@@ -72,6 +63,7 @@ class WatchListViewController: UIViewController {
         }
         
     }
+    
     // MARK: Config
     
     func configureAuth() {
@@ -103,13 +95,21 @@ class WatchListViewController: UIViewController {
     func configureDatabase() {
         
         ref = FIRDatabase.database().reference()
-        //_refHandle = ref.child("messages").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        _refHandle = ref.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
-//            self.messages.append(snapshot)
-//            self.messagesTable.insertRows(at: [IndexPath(row: self.messages.count - 1, section: 0)], with: .automatic)
-//            self.scrollToBottomMessage()
+//            self.userList.append(snapshot)
+            let listSnapshot: FIRDataSnapshot! = snapshot
+            let list = listSnapshot.value as! [String]
+            self.userList = list
             
-        //}
+            for list in self.userList {
+                StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
+                    self.watchList[list] = stock
+                    self.tableView.reloadData()
+                })
+            }
+            
+        }
         
     }
     
@@ -124,7 +124,7 @@ class WatchListViewController: UIViewController {
 //        imageMessage.isHidden = !isSignedIn
         
         if (isSignedIn) {
-            tableView.isHidden = true
+            //tableView.isHidden = true
             // remove background blur (will use when showing image messages)
 //            messagesTable.rowHeight = UITableViewAutomaticDimension
 //            messagesTable.estimatedRowHeight = 122.0
@@ -166,7 +166,7 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return arrayWL.count
+        return userList.count
         
     }
     
@@ -174,7 +174,7 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockWLDataCell", for: indexPath) as! StockWLDataTableViewCell
         
-        if let stock = watchList?[arrayWL[indexPath.row]] {
+        if let stock = watchList[userList[indexPath.row]] {
             cell.setData(stock)
         } else {
             cell.symbolLabel.text = "Data still loading"
