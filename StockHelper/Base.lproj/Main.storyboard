@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mmg-rm-6Wd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ewp-cI-Npk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,8 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-IT-zOZ">
+                                <rect key="frame" x="164.5" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="randomButton:" destination="Mmg-rm-6Wd" eventType="touchUpInside" id="ysQ-GY-BTv"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-CP-tHM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mmg-rm-6Wd" id="g4V-6R-FTG"/>
@@ -34,17 +41,33 @@
                         <constraints>
                             <constraint firstItem="oyn-6X-gaO" firstAttribute="top" secondItem="wN6-CP-tHM" secondAttribute="bottom" id="JYV-vq-O4v"/>
                             <constraint firstAttribute="trailing" secondItem="wN6-CP-tHM" secondAttribute="trailing" id="Zhi-dp-YhL"/>
+                            <constraint firstItem="9oI-IT-zOZ" firstAttribute="centerY" secondItem="60L-S1-6hk" secondAttribute="centerY" id="d3n-PR-lYN"/>
+                            <constraint firstItem="9oI-IT-zOZ" firstAttribute="centerX" secondItem="60L-S1-6hk" secondAttribute="centerX" id="i8J-dA-Lng"/>
                             <constraint firstItem="wN6-CP-tHM" firstAttribute="top" secondItem="68a-nt-ovC" secondAttribute="bottom" id="mwD-oW-ETe"/>
                             <constraint firstItem="wN6-CP-tHM" firstAttribute="leading" secondItem="60L-S1-6hk" secondAttribute="leading" id="uW4-bB-zJ2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Vqv-Sr-FsO">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="Quf-K9-QGR">
+                            <connections>
+                                <action selector="LoginAction:" destination="Mmg-rm-6Wd" id="A13-Le-dSn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="gaL-sO-HhR">
+                            <connections>
+                                <action selector="signOutAction:" destination="Mmg-rm-6Wd" id="1Zb-m3-ACj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="signInButton" destination="Quf-K9-QGR" id="FMj-pA-8WH"/>
+                        <outlet property="signOutButton" destination="gaL-sO-HhR" id="ITt-mu-i3K"/>
                         <outlet property="tableView" destination="wN6-CP-tHM" id="6PV-Bq-j6W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TF-9i-roZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="-1317"/>
+            <point key="canvasLocation" x="1911.2" y="-1317.3913043478262"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="Xgg-2H-UuK">
@@ -145,7 +168,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yeb-ve-NRn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XcB-Yk-VNN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XcB-Yk-VNN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -157,6 +180,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIf-g8-eH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="-657.12143928035982"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nyd-VD-4tq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ewp-cI-Npk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n9A-0J-sMP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mmg-rm-6Wd" kind="relationship" relationship="rootViewController" id="tHT-bC-ete"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vzi-iM-efk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="-1317.3913043478262"/>
         </scene>
     </scenes>
 </document>

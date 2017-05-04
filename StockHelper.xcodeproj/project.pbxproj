@@ -84,24 +84,56 @@
 			isa = PBXGroup;
 			children = (
 				2B43B2481E8B592500703A11 /* AppDelegate.swift */,
+				2B837F591EBAA2E8001627D4 /* View */,
+				2B837F5A1EBAA307001627D4 /* Cell/Nib */,
+				2B837F5B1EBAA336001627D4 /* Model */,
+				2B837F5C1EBAA359001627D4 /* Supporting File */,
+			);
+			path = StockHelper;
+			sourceTree = "<group>";
+		};
+		2B837F591EBAA2E8001627D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */,
 				2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */,
 				2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */,
+				2B43B24C1E8B592500703A11 /* Main.storyboard */,
+				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2B837F5A1EBAA307001627D4 /* Cell/Nib */ = {
+			isa = PBXGroup;
+			children = (
 				2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */,
 				2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */,
 				2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */,
 				2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */,
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
 				2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */,
+			);
+			name = Cell/Nib;
+			sourceTree = "<group>";
+		};
+		2B837F5B1EBAA336001627D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				2B43B26D1E8D688400703A11 /* StockManager.swift */,
-				2B43B24C1E8B592500703A11 /* Main.storyboard */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2B837F5C1EBAA359001627D4 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
 				2B43B2521E8B592500703A11 /* Assets.xcassets */,
-				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 				2B43B2571E8B592500703A11 /* Info.plist */,
 				2B837F551EB9059E001627D4 /* GoogleService-Info.plist */,
 				2B43B24F1E8B592500703A11 /* StockHelper.xcdatamodeld */,
 			);
-			path = StockHelper;
+			name = "Supporting File";
 			sourceTree = "<group>";
 		};
 		72FA0219FD1D724C112A054C /* Pods */ = {

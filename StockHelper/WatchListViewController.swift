@@ -14,6 +14,9 @@ import FirebaseGoogleAuthUI
 class WatchListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var signInButton: UIBarButtonItem!
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
+
     
     var arrayWL = ["IBM", "AMD", "AKER"]
     var watchList: [String: Stock]?
@@ -28,21 +31,47 @@ class WatchListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+      
         configureAuth()
         
         watchList = [String: Stock]()
         
         tableView.register(UINib(nibName: "StockWLDataTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "stockWLDataCell")
-        for list in arrayWL {
-            StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
-                self.watchList![list] = stock
-                self.tableView.reloadData()
-            })
-        }
+        
+//        for list in arrayWL {
+//            StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
+//                self.watchList![list] = stock
+//                self.tableView.reloadData()
+//            })
+//        }
         
         
     }
     
+    // MARK: Actions
+    
+    @IBAction func randomButton(_ sender: Any) {
+        
+        ref.child("user").child((user?.uid)!).setValue(["list": arrayWL])
+
+        //ref.child(displayName).setValue(["number": arrayWL])
+
+    }
+    
+    @IBAction func LoginAction(_ sender: Any) {
+        
+        loginSession()
+    }
+    
+    @IBAction func signOutAction(_ sender: Any) {
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch {
+            print("unable to sign out: \(error)")
+        }
+        
+    }
     // MARK: Config
     
     func configureAuth() {
@@ -74,35 +103,35 @@ class WatchListViewController: UIViewController {
     func configureDatabase() {
         
         ref = FIRDatabase.database().reference()
-        _refHandle = ref.child("messages").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        //_refHandle = ref.child("messages").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
 //            self.messages.append(snapshot)
 //            self.messagesTable.insertRows(at: [IndexPath(row: self.messages.count - 1, section: 0)], with: .automatic)
 //            self.scrollToBottomMessage()
             
-        }
+        //}
         
     }
     
     // MARK: Sign In and Out
     
     func signedInStatus(isSignedIn: Bool) {
-//        signInButton.isHidden = isSignedIn
-//        signOutButton.isHidden = !isSignedIn
+        signInButton.isEnabled = !isSignedIn
+        signOutButton.isEnabled = isSignedIn
 //        messagesTable.isHidden = !isSignedIn
 //        messageTextField.isHidden = !isSignedIn
 //        sendButton.isHidden = !isSignedIn
 //        imageMessage.isHidden = !isSignedIn
         
         if (isSignedIn) {
-            
+            tableView.isHidden = true
             // remove background blur (will use when showing image messages)
 //            messagesTable.rowHeight = UITableViewAutomaticDimension
 //            messagesTable.estimatedRowHeight = 122.0
 //            backgroundBlur.effect = nil
 //            messageTextField.delegate = self
             
-//            configureDatabase()
+            configureDatabase()
 //            configureStorage()
 //            configureRemoteConfig()
 //            fetchConfig()
