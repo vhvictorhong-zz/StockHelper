@@ -36,7 +36,6 @@ class WatchListViewController: UIViewController {
         
         tableView.register(UINib(nibName: "StockWLDataTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "stockWLDataCell")
         
-        
     }
     
     // MARK: Actions
@@ -125,9 +124,8 @@ class WatchListViewController: UIViewController {
         if (isSignedIn) {
             //tableView.isHidden = true
             // remove background blur (will use when showing image messages)
-//            messagesTable.rowHeight = UITableViewAutomaticDimension
-//            messagesTable.estimatedRowHeight = 122.0
-//            backgroundBlur.effect = nil
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = 70
 //            messageTextField.delegate = self
             
             configureDatabase()
@@ -179,8 +177,20 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.symbolLabel.text = "Data still loading"
         }
         
+        cell.contentView.setNeedsLayout()
+        cell.contentView.layoutIfNeeded()
+        
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // TODO: Fix this code
+        
+        return 70
+        //return [[[[NSBundle mainBundle] loadNibNamed:@"ELConvCurListViewCell" owner:self options:nil] objectAtIndex:0] bounds].size.height;
+
     }
     
 }
