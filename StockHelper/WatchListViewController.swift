@@ -126,7 +126,6 @@ class WatchListViewController: UIViewController {
             // remove background blur (will use when showing image messages)
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 70
-//            messageTextField.delegate = self
             
             configureDatabase()
 //            configureStorage()
@@ -177,20 +176,8 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.symbolLabel.text = "Data still loading"
         }
         
-        cell.contentView.setNeedsLayout()
-        cell.contentView.layoutIfNeeded()
-        
         return cell
         
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        // TODO: Fix this code
-        
-        return 70
-        //return [[[[NSBundle mainBundle] loadNibNamed:@"ELConvCurListViewCell" owner:self options:nil] objectAtIndex:0] bounds].size.height;
-
-    }
-    
 }

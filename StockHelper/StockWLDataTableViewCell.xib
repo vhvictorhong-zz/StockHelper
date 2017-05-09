@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,6 +18,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-Br-Ufo">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="69.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="hbF-C8-zQP"/>
+                        </constraints>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uro-FF-M9C">
                         <rect key="frame" x="10" y="10" width="73" height="46"/>
                         <subviews>
@@ -54,10 +61,14 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Uro-FF-M9C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="f3T-au-mk2"/>
-                    <constraint firstAttribute="trailing" secondItem="Ovc-xX-5Vk" secondAttribute="trailing" constant="10" id="hjK-yP-27M"/>
-                    <constraint firstItem="Ovc-xX-5Vk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="p5c-TK-G91"/>
-                    <constraint firstItem="Uro-FF-M9C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rti-ro-kTw"/>
+                    <constraint firstItem="uy3-Br-Ufo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8eY-H4-7c7"/>
+                    <constraint firstItem="Uro-FF-M9C" firstAttribute="top" secondItem="uy3-Br-Ufo" secondAttribute="top" constant="10" id="FoO-7U-QF8"/>
+                    <constraint firstItem="Uro-FF-M9C" firstAttribute="leading" secondItem="uy3-Br-Ufo" secondAttribute="leading" constant="10" id="UVo-8t-Xag"/>
+                    <constraint firstItem="Ovc-xX-5Vk" firstAttribute="top" secondItem="uy3-Br-Ufo" secondAttribute="top" constant="10" id="emX-f7-Ic1"/>
+                    <constraint firstAttribute="trailing" secondItem="uy3-Br-Ufo" secondAttribute="trailing" id="nzz-Ij-WQo"/>
+                    <constraint firstAttribute="trailing" secondItem="Ovc-xX-5Vk" secondAttribute="trailing" constant="10" id="s5e-Rb-6TY"/>
+                    <constraint firstAttribute="bottom" secondItem="uy3-Br-Ufo" secondAttribute="bottom" id="uYu-Wt-6TB"/>
+                    <constraint firstItem="uy3-Br-Ufo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vOh-Le-aW6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
