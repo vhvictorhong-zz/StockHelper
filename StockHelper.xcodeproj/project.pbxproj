@@ -19,9 +19,10 @@
 		2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */; };
 		2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */; };
 		2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */; };
+		2B7CFD811EC29084007C67C8 /* StockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CFD801EC29084007C67C8 /* StockListViewController.swift */; };
+		2B7CFD841EC29110007C67C8 /* StockListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */; };
+		2B7CFD851EC29110007C67C8 /* StockListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */; };
 		2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B837F551EB9059E001627D4 /* GoogleService-Info.plist */; };
-		2B837F5F1EBCFD46001627D4 /* StockWLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B837F5D1EBCFD46001627D4 /* StockWLCollectionViewCell.swift */; };
-		2B837F601EBCFD46001627D4 /* StockWLCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B837F5E1EBCFD46001627D4 /* StockWLCollectionViewCell.xib */; };
 		2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */; };
 		2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */; };
 		2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */; };
@@ -43,9 +44,10 @@
 		2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
+		2B7CFD801EC29084007C67C8 /* StockListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListViewController.swift; sourceTree = "<group>"; };
+		2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B837F551EB9059E001627D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2B837F5D1EBCFD46001627D4 /* StockWLCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLCollectionViewCell.swift; sourceTree = "<group>"; };
-		2B837F5E1EBCFD46001627D4 /* StockWLCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLCollectionViewCell.xib; sourceTree = "<group>"; };
 		2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLDataTableViewCell.swift; sourceTree = "<group>"; };
 		2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLDataTableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				2B555F9B1E8EE31800FA9478 /* SearchViewController.swift */,
 				2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */,
 				2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */,
+				2B7CFD801EC29084007C67C8 /* StockListViewController.swift */,
 				2B43B24C1E8B592500703A11 /* Main.storyboard */,
 				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 			);
@@ -113,8 +116,8 @@
 			children = (
 				2B555F9D1E8EEAD100FA9478 /* StockTableViewCell.swift */,
 				2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */,
-				2B837F5D1EBCFD46001627D4 /* StockWLCollectionViewCell.swift */,
-				2B837F5E1EBCFD46001627D4 /* StockWLCollectionViewCell.xib */,
+				2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */,
+				2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */,
 				2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */,
 				2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */,
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
@@ -226,10 +229,10 @@
 				2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */,
 				2B43B26A1E8CA3DA00703A11 /* StockDataCollectionViewCell.xib in Resources */,
 				2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */,
-				2B837F601EBCFD46001627D4 /* StockWLCollectionViewCell.xib in Resources */,
 				2B43B2531E8B592500703A11 /* Assets.xcassets in Resources */,
 				2B43B24E1E8B592500703A11 /* Main.storyboard in Resources */,
 				2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */,
+				2B7CFD851EC29110007C67C8 /* StockListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,15 +292,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B555F9F1E8EEAD100FA9478 /* StockTableViewCell.swift in Sources */,
+				2B7CFD841EC29110007C67C8 /* StockListCollectionViewCell.swift in Sources */,
 				2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */,
 				2B555F9C1E8EE31800FA9478 /* SearchViewController.swift in Sources */,
 				2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */,
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
-				2B837F5F1EBCFD46001627D4 /* StockWLCollectionViewCell.swift in Sources */,
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
 				2B43B25E1E8CA00B00703A11 /* DetailViewController.swift in Sources */,
 				2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */,
+				2B7CFD811EC29084007C67C8 /* StockListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FPX-fg-JkP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="anj-qg-TgU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stock List View Controller-->
         <scene sceneID="eAD-5z-OF5">
             <objects>
-                <viewController id="anj-qg-TgU" sceneMemberID="viewController">
+                <viewController id="anj-qg-TgU" customClass="StockListViewController" customModule="StockHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yY2-yu-tvQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Xlm-vu-Rby"/>
@@ -31,6 +31,10 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="anj-qg-TgU" id="cQj-j7-Gv4"/>
+                                    <outlet property="delegate" destination="anj-qg-TgU" id="Fh2-yx-ma0"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,6 +45,9 @@
                             <constraint firstItem="eMM-Aa-3yc" firstAttribute="leading" secondItem="FGj-TU-hZP" secondAttribute="leading" id="m0m-pF-fFd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="eMM-Aa-3yc" id="mUE-dd-IJB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vem-Dx-95d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,15 +65,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-IT-zOZ">
-                                <rect key="frame" x="169" y="318" width="37" height="30"/>
-                                <state key="normal" title="Write"/>
-                                <connections>
-                                    <action selector="randomButton:" destination="Mmg-rm-6Wd" eventType="touchUpInside" id="ysQ-GY-BTv"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-CP-tHM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mmg-rm-6Wd" id="g4V-6R-FTG"/>
@@ -78,8 +78,6 @@
                         <constraints>
                             <constraint firstItem="oyn-6X-gaO" firstAttribute="top" secondItem="wN6-CP-tHM" secondAttribute="bottom" id="JYV-vq-O4v"/>
                             <constraint firstAttribute="trailing" secondItem="wN6-CP-tHM" secondAttribute="trailing" id="Zhi-dp-YhL"/>
-                            <constraint firstItem="9oI-IT-zOZ" firstAttribute="centerY" secondItem="60L-S1-6hk" secondAttribute="centerY" id="d3n-PR-lYN"/>
-                            <constraint firstItem="9oI-IT-zOZ" firstAttribute="centerX" secondItem="60L-S1-6hk" secondAttribute="centerX" id="i8J-dA-Lng"/>
                             <constraint firstItem="wN6-CP-tHM" firstAttribute="top" secondItem="68a-nt-ovC" secondAttribute="bottom" id="mwD-oW-ETe"/>
                             <constraint firstItem="wN6-CP-tHM" firstAttribute="leading" secondItem="60L-S1-6hk" secondAttribute="leading" id="uW4-bB-zJ2"/>
                         </constraints>
@@ -126,7 +124,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="arZ-UY-0vJ">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="uMl-KU-E0q" id="myI-Jg-oGD"/>
@@ -224,7 +222,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yeb-ve-NRn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="ed9-0H-RgN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XcB-Yk-VNN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XcB-Yk-VNN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -243,7 +241,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ewp-cI-Npk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="6Bo-tX-P8I"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n9A-0J-sMP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n9A-0J-sMP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

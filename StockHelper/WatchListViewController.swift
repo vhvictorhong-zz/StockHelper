@@ -40,14 +40,6 @@ class WatchListViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func randomButton(_ sender: Any) {
-        
-        //ref.child("user").child((user?.uid)!).setValue(["list": arrayWL])
-
-        //ref.child(displayName).setValue(["number": arrayWL])
-
-    }
-    
     @IBAction func LoginAction(_ sender: Any) {
         
         loginSession()
@@ -179,5 +171,5 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
-        
+    
 }
