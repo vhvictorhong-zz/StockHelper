@@ -20,7 +20,16 @@ class StockListViewController: UIViewController {
         collectionView.register(UINib(nibName: "StockListCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockListCell")
     }
     
-
+    override func viewDidLayoutSubviews() {
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { fatalError("Expected the collection view to have a UICollectionViewFlowLayout") }
+        
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.itemSize.width = self.view.bounds.size.width / 4
+        layout.itemSize.height = self.view.bounds.size.height / 10
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -40,12 +49,21 @@ extension StockListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stockListCell", for: indexPath) as? StockListCollectionViewCell
+        
+        cell?.stockListView.layer.borderColor = UIColor.black.cgColor
+        cell?.stockListView.layer.borderWidth = 1
+        
+        if indexPath.row % 2 == 0 {
+            cell?.stockListView.backgroundColor = .red
+        } else {
+            cell?.stockListView.backgroundColor = .green
+        }
         
         cell?.companyLabel.text = "\(indexPath.row)"
         
