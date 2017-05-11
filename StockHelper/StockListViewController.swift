@@ -18,6 +18,12 @@ class StockListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         collectionView.register(UINib(nibName: "StockListCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockListCell")
+        
+        QTStockManager.fetchStocksFromSearch(term: "IBM") { (response) in
+            print(response)
+            
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {

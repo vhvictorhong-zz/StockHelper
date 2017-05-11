@@ -16,49 +16,6 @@ struct StockSearchResult {
     var assetType: String?
 }
 
-struct Stock {
-    
-    var ask: String?
-    var averageDailyVolume: String?
-    var bid: String?
-    var bookValue: String?
-    var changeNumeric: String?
-    var changePercent: String?
-    var dayHigh: String?
-    var dayLow: String?
-    var dividendShare: String?
-    var dividendYield: String?
-    var ebitda: String?
-    var epsEstimateCurrentYear: String?
-    var epsEstimateNextQtr: String?
-    var epsEstimateNextYr: String?
-    var eps: String?
-    var fiftydayMovingAverage: String?
-    var lastTradeDate: String?
-    var last: String?
-    var lastTradeTime: String?
-    var lastTradePrice: String?
-    var marketCap: String?
-    var companyName: String?
-    var oneYearTarget: String?
-    var open: String?
-    var pegRatio: String?
-    var peRatio: String?
-    var previousClose: String?
-    var priceBook: String?
-    var priceSales: String?
-    var shortRatio: String?
-    var stockExchange: String?
-    var symbol: String?
-    var twoHundreddayMovingAverage: String?
-    var volume: String?
-    var yearHigh: String?
-    var yearLow: String?
-    
-    var dataFields: [[String : String]]
-    
-}
-
 class StockManager {
     
 // MARK: - fetchStocksFromSearch
