@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct AcessToken {
+struct AccessToken {
     
     var accessToken = ""
     static var api_server = "https://api07.iq.questrade.com/"
@@ -109,18 +109,19 @@ struct MarketQuote {
     var openPrice: Double?
     var highPrice: Double?
     var lowPrice: Double?
+    var delay: Double?
     
 }
 
 class QTStockManager {
     
-    // MARK: - fetchStocksFromSearch
+    // MARK: - fetchSymbolsFromSearch
     
-    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearch]) -> ()) {
+    class func fetchSymbolsFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearch]) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
-            let searchURL = AcessToken.api_server + Constants.MarketCalls.retrieveStockWithSearch
+            let searchURL = AccessToken.api_server + Constants.MarketCalls.retrieveSymbolWithSearch
             
             Alamofire.request(searchURL, parameters: ["prefix": term], headers: ["Authorization": "Bearer SCklMBcOs6uCLMr3Hd9YoABECcNmjOKs0"]).responseJSON(completionHandler: { (response) in
                 
@@ -143,13 +144,13 @@ class QTStockManager {
         }
     }
     
-    // MARK: - fetchStockDetail
+    // MARK: - fetchSymbolDetail
     
-    class func fetchStockDetail(id: Int, completion:@escaping (_ stockInfo: StockDetail) -> ()) {
+    class func fetchSymbolDetail(id: Int, completion:@escaping (_ stockInfo: StockDetail) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
-            let stockURL = AcessToken.api_server + Constants.MarketCalls.retriveStocksWithID
+            let stockURL = AccessToken.api_server + Constants.MarketCalls.retriveSymbolWithID
             
             Alamofire.request(stockURL, parameters: ["ids": id], headers: ["Authorization": "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
                 
@@ -165,10 +166,37 @@ class QTStockManager {
                         DispatchQueue.main.async {
                             completion(stockInfo)
                         }
+                        
                     }
+                }
+            })
+        }
+    }
+    
+    //MARK: - fetchMarketWithID
+    
+    class func fetchMarketID(id: Int, completion:@escaping (_ marketInfo: MarketQuote) -> ()) {
+        
+        DispatchQueue.global(qos: .default).async {
+            
+            let marketURL = AccessToken.api_server + Constants.MarketCalls.retrieveMarketWithID
+            
+            Alamofire.request(marketURL, parameters: ["ids": id], headers: ["Authorization": "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
+                
+                if let resultJSON = response.result.value as? [String: AnyObject] {
                     
-                    //print(resultJSON["symbols"] as? )
-                    
+                    var marketInfo = MarketQuote()
+                    if let json = resultJSON["quotes"] as? [[String: AnyObject]] {
+                        
+                        for dictionary in json {
+                            marketInfo = MarketQuote(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, bidPrice: dictionary["bidPrice"] as? Double, bidSize: dictionary["bidSize"] as? Int, askPrice: dictionary["askPrice"] as? Double, askSize: dictionary["askSize"] as? Int, lastTradeTrHrs: dictionary["lastTradeTrHrs"] as? Double, lastTradePrice: dictionary["lastTradePrice"] as? Double, lastTradeSize: dictionary["lastTradeSize"] as? Double, volume: dictionary["volume"] as? Int, openPrice: dictionary["openPrice"] as? Double, highPrice: dictionary["highPrice"] as? Double, lowPrice: dictionary["lowPrice"] as? Double, delay: dictionary["delay"] as? Double)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            completion(marketInfo)
+                        }
+                        
+                    }
                 }
             })
         }

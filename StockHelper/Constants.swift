@@ -29,8 +29,9 @@ struct Constants {
     
     struct MarketCalls {
         
-        static let retriveStocksWithID = "v1/symbols"
-        static let retrieveStockWithSearch = "v1/symbols/search"
+        static let retriveSymbolWithID = "v1/symbols"
+        static let retrieveSymbolWithSearch = "v1/symbols/search"
+        static let retrieveMarketWithID = "v1/markets/quotes"
         
     }
     
