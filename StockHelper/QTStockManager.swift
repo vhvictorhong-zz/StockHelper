@@ -127,6 +127,7 @@ class QTStockManager {
                 if let resultJSON = response.result.value as? [String : AnyObject] {
                     
                     if let jsonArray = resultJSON["symbols"] as? [[String: AnyObject]]{
+                        
                         var stockInfoArray = [StockSearch]()
                         
                         for dictionary in jsonArray {
@@ -139,24 +140,37 @@ class QTStockManager {
                     }
                 }
             })
+        }
+    }
+    
+    // MARK: - fetchStockDetail
+    
+    class func fetchStockDetail(id: Int, completion:@escaping (_ stockInfo: StockDetail) -> ()) {
+        
+        DispatchQueue.global(qos: .default).async {
             
-//            Alamofire.request(searchURL, parameters: ["query": term, "region": 2, "lang": "en"]).responseJSON { response in
-//                
-//                if let resultJSON = response.result.value as? [String : AnyObject]  {
-//                    
-//                    if let jsonArray = (resultJSON["ResultSet"] as! [String : AnyObject])["Result"] as? [[String : String]] {
-//                        
-//                        var stockInfoArray = [StockSearchResult]()
-//                        for dictionary in jsonArray {
-//                            stockInfoArray.append(StockSearchResult(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
-//                        }
-//                        
-//                        DispatchQueue.main.async {
-//                            completion(stockInfoArray)
-//                        }
-//                    }
-//                }
-//            }
+            let stockURL = AcessToken.api_server + Constants.MarketCalls.retriveStocksWithID
+            
+            Alamofire.request(stockURL, parameters: ["ids": id], headers: ["Authorization": "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
+                
+                if let resultJSON = response.result.value as? [String: AnyObject] {
+                    
+                    var stockInfo = StockDetail()
+                    if let json = resultJSON["symbols"] as? [[String: AnyObject]] {
+                        
+                        for dictionary in json {
+                            stockInfo = StockDetail(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, prevDayClosePrice: dictionary["prevDayClosePrice"] as? Double, highPrice52: dictionary["highPrice52"] as? Double, lowPrice52: dictionary["lowPrice52"] as? Double, averageVol3Months: dictionary["averageVol3Months"] as? Int, averageVol20Days: dictionary["averageVol20Days"] as? Int, outstandingShares: dictionary["outstandingShares"] as? Int, eps: dictionary["eps"] as? Double, pe: dictionary["pe"] as? Double, dividend: dictionary["dividend"] as? Double, yield: dictionary["yield"] as? Double, marketCap: dictionary["marketCap"] as? Double, listingExchange: dictionary["listingExchange"] as? String, description: dictionary["description"] as? String, currency: dictionary["currency"] as? String, industrySector: dictionary["industrySector"] as? String, industryGroup: dictionary["industryGroup"] as? String, industrySubGroup: dictionary["industrySubGroup"] as? String)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            completion(stockInfo)
+                        }
+                    }
+                    
+                    //print(resultJSON["symbols"] as? )
+                    
+                }
+            })
         }
     }
 

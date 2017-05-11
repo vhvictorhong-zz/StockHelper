@@ -19,8 +19,8 @@ class StockListViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "StockListCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockListCell")
         
-        QTStockManager.fetchStocksFromSearch(term: "IBM") { (response) in
-            print(response)
+        QTStockManager.fetchStockDetail(id: 8049) { (stock) in
+            print(stock)
             
         }
         
