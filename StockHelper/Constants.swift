@@ -14,7 +14,7 @@ struct Constants {
     
     struct Token {
         
-        static let authorizedToken = "k9_ZemoA6Mbl45-TKlosT3fvlY8Xw7080"
+        static var authorizedToken = "7ui-ao0AICEib3hEgUS6VBtro5Q-XoZu0"
         
     }
     
@@ -24,6 +24,18 @@ struct Constants {
         
         static let authorizedURL = "https://login.questrade.com/oauth2/token?grant_type=refresh_token&refresh_token=\(Constants.Token.authorizedToken)"
         
+    }
+    
+    struct Headers {
+        
+        static let authorization = "Authorization"
+    
+    }
+    
+    struct Parameters {
+        
+        static let prefix = "prefix"
+        static let ids = "ids"
         
     }
     

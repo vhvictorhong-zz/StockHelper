@@ -12,8 +12,9 @@ import Alamofire
 struct AccessToken {
     
     var accessToken = ""
-    static var api_server = "https://api07.iq.questrade.com/"
-    var expires_in = ""
+    var api_server = ""
+    var expires_in = 0
+    var refresh_token = ""
     var token_type = ""
 }
 
@@ -121,9 +122,9 @@ class QTStockManager {
         
         DispatchQueue.global(qos: .default).async {
             
-            let searchURL = AccessToken.api_server + Constants.MarketCalls.retrieveSymbolWithSearch
+            let searchURL = "https://api07.iq.questrade.com/" + Constants.MarketCalls.retrieveSymbolWithSearch
             
-            Alamofire.request(searchURL, parameters: ["prefix": term], headers: ["Authorization": "Bearer SCklMBcOs6uCLMr3Hd9YoABECcNmjOKs0"]).responseJSON(completionHandler: { (response) in
+            Alamofire.request(searchURL, parameters: [Constants.Parameters.prefix: term], headers: [Constants.Headers.authorization: "Bearer SCklMBcOs6uCLMr3Hd9YoABECcNmjOKs0"]).responseJSON(completionHandler: { (response) in
                 
                 if let resultJSON = response.result.value as? [String : AnyObject] {
                     
@@ -150,9 +151,9 @@ class QTStockManager {
         
         DispatchQueue.global(qos: .default).async {
             
-            let stockURL = AccessToken.api_server + Constants.MarketCalls.retriveSymbolWithID
+            let stockURL = "https://api07.iq.questrade.com/" + Constants.MarketCalls.retriveSymbolWithID
             
-            Alamofire.request(stockURL, parameters: ["ids": id], headers: ["Authorization": "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
+            Alamofire.request(stockURL, parameters: [Constants.Parameters.ids: id], headers: [Constants.Headers.authorization: "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
                 
                 if let resultJSON = response.result.value as? [String: AnyObject] {
                     
@@ -173,15 +174,15 @@ class QTStockManager {
         }
     }
     
-    //MARK: - fetchMarketWithID
+    // MARK: - fetchMarketWithID
     
     class func fetchMarketID(id: Int, completion:@escaping (_ marketInfo: MarketQuote) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
-            let marketURL = AccessToken.api_server + Constants.MarketCalls.retrieveMarketWithID
+            let marketURL = "https://api07.iq.questrade.com/" + Constants.MarketCalls.retrieveMarketWithID
             
-            Alamofire.request(marketURL, parameters: ["ids": id], headers: ["Authorization": "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
+            Alamofire.request(marketURL, parameters: [Constants.Parameters.ids: id], headers: [Constants.Headers.authorization: "Bearer AxIXcnsKawCR__n7ZIQB76yJkfCyCjvQ0"]).responseJSON(completionHandler: { (response) in
                 
                 if let resultJSON = response.result.value as? [String: AnyObject] {
                     
@@ -197,6 +198,49 @@ class QTStockManager {
                         }
                         
                     }
+                }
+            })
+        }
+    }
+    
+    // MARK - fetchRefreshToken
+    
+    class func fetchRefreshToken(completion:@escaping (_ refreshInfo: AccessToken) -> ()) {
+        
+        DispatchQueue.global(qos: .default).async {
+            
+            let refreshURL = Constants.URL.authorizedURL
+            
+            Alamofire.request(refreshURL).responseJSON(completionHandler: { (response) in
+                
+                if let resultJSON = response.result.value as? [String: AnyObject] {
+                    
+                    guard let accessToken = resultJSON["access_token"] as? String else {
+                        return
+                    }
+                    
+                    guard let api_server = resultJSON["api_server"] as? String else {
+                        return
+                    }
+                    
+                    guard let expires_in = resultJSON["expires_in"] as? Int else {
+                        return
+                    }
+                    
+                    guard let refresh_token = resultJSON["refresh_token"] as? String else {
+                        return
+                    }
+                    
+                    guard let token_type = resultJSON["token_type"] as? String else {
+                        return
+                    }
+                    
+                    let refreshInfo = AccessToken(accessToken: accessToken, api_server: api_server, expires_in: expires_in, refresh_token: refresh_token, token_type: token_type)
+                    
+                    DispatchQueue.main.async {
+                        completion(refreshInfo)
+                    }
+                    
                 }
             })
         }
