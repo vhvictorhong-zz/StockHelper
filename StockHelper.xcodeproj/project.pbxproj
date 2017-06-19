@@ -21,6 +21,7 @@
 		2B555FA01E8EEAD100FA9478 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */; };
 		2B6F746F1EC3877300977CF3 /* QTStockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F746E1EC3877300977CF3 /* QTStockManager.swift */; };
 		2B6F74711EC3894400977CF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F74701EC3894400977CF3 /* Constants.swift */; };
+		2B78428B1EF85F1400EF9E18 /* AlphaStockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B78428A1EF85F1400EF9E18 /* AlphaStockManager.swift */; };
 		2B7CFD811EC29084007C67C8 /* StockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CFD801EC29084007C67C8 /* StockListViewController.swift */; };
 		2B7CFD841EC29110007C67C8 /* StockListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */; };
 		2B7CFD851EC29110007C67C8 /* StockListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */; };
@@ -48,6 +49,7 @@
 		2B555F9E1E8EEAD100FA9478 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
 		2B6F746E1EC3877300977CF3 /* QTStockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QTStockManager.swift; sourceTree = "<group>"; };
 		2B6F74701EC3894400977CF3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B78428A1EF85F1400EF9E18 /* AlphaStockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaStockManager.swift; sourceTree = "<group>"; };
 		2B7CFD801EC29084007C67C8 /* StockListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListViewController.swift; sourceTree = "<group>"; };
 		2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				2B43B26D1E8D688400703A11 /* StockManager.swift */,
 				2B6F746E1EC3877300977CF3 /* QTStockManager.swift */,
+				2B78428A1EF85F1400EF9E18 /* AlphaStockManager.swift */,
 				2B6F74701EC3894400977CF3 /* Constants.swift */,
 			);
 			name = Model;
@@ -308,6 +311,7 @@
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
 				2B43B25E1E8CA00B00703A11 /* DetailViewController.swift in Sources */,
 				2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */,
+				2B78428B1EF85F1400EF9E18 /* AlphaStockManager.swift in Sources */,
 				2B7CFD811EC29084007C67C8 /* StockListViewController.swift in Sources */,
 				2B6F746F1EC3877300977CF3 /* QTStockManager.swift in Sources */,
 			);
