@@ -19,9 +19,9 @@ struct AlphaStock {
     var lowPrice: Double?
     var closePrice: Double?
     var priceChange: Double?
-    var percentageChange: Double?
+    var percentageChange: String?
     var volume: String?
-    var lastUpdated: Date?
+    var lastUpdated: String?
     
 }
 
@@ -39,9 +39,26 @@ class AlphaStockManager {
                 
                 if let resultJSON = response.result.value as? [String: AnyObject] {
                     
-                    if let json = resultJSON["Realtime Global Securities Quote"] as! [String: AnyObject] {
+                    if let json = resultJSON["Realtime Global Securities Quote"] {
+                        
+                        let symbol = json["01. Symbol"] as! String
+                        let exchangeName = json["02. Exchange Name"] as! String
+                        let currentPrice = json["03. Latest Price"] as! String
+                        let openPrice = json["04. Open (Current Trading Day)"] as! String
+                        let highPrice = json["05. High (Current Trading Day)"] as! String
+                        let lowPrice = json["06. Low (Current Trading Day)"] as! String
+                        let closePrice = json["07. Close (Previous Trading Day)"] as! String
+                        let priceChange = json["08. Price Change"] as! String
+                        let percentageChange = json["09. Price Change Percentage"] as! String
+                        let volume = json["10. Volume (Current Trading Day)"] as! String
+                        let lastUpdated = json["11. Last Updated"] as! String
+                        
+                        let stockInfo = AlphaStock(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
                         
                         
+                        DispatchQueue.main.async {
+                            completion(stockInfo)
+                        }
                     }
                 }
             })

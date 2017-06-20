@@ -36,6 +36,10 @@ class WatchListViewController: UIViewController {
         
         tableView.register(UINib(nibName: "StockWLDataTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "stockWLDataCell")
         
+        AlphaStockManager.fetchRealTimeStock(term: "TSLA") { (stock) in
+            print(stock)
+        }
+        
     }
     
     // MARK: Actions
