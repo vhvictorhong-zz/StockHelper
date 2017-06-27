@@ -12,9 +12,18 @@ class StockListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var stockListView: UIView!
     @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountChangeLabel: UILabel!
     @IBOutlet weak var percentageChangeLabel: UILabel!
     
+    func setData(_ stockData: AlphaStock) {
+        
+        companyLabel.text = stockData.symbol
+        priceLabel.text = String(describing: stockData.currentPrice!)
+        //amountChangeLabel.text = String(describing: stockData.priceChange)
+        percentageChangeLabel.text = stockData.percentageChange
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

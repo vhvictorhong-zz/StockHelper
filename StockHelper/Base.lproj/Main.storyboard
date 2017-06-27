@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FPX-fg-JkP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FPX-fg-JkP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eMM-Aa-3yc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hTg-cD-v8m">
                                     <size key="itemSize" width="50" height="50"/>
@@ -45,8 +45,22 @@
                             <constraint firstItem="eMM-Aa-3yc" firstAttribute="leading" secondItem="FGj-TU-hZP" secondAttribute="leading" id="m0m-pF-fFd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yxg-6y-Qap">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="QyX-KX-MFC">
+                            <connections>
+                                <action selector="loginAction:" destination="anj-qg-TgU" id="qNQ-D3-TaF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Signout" id="yLb-xp-fkv">
+                            <connections>
+                                <action selector="signoutAction:" destination="anj-qg-TgU" id="HTC-aa-X2f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="eMM-Aa-3yc" id="mUE-dd-IJB"/>
+                        <outlet property="loginButton" destination="QyX-KX-MFC" id="uWd-MY-QzS"/>
+                        <outlet property="signoutButton" destination="yLb-xp-fkv" id="71M-mA-DYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vem-Dx-95d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-CP-tHM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mmg-rm-6Wd" id="g4V-6R-FTG"/>
@@ -247,7 +261,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Mmg-rm-6Wd" kind="relationship" relationship="rootViewController" id="tHT-bC-ete"/>
+                        <segue destination="anj-qg-TgU" kind="relationship" relationship="rootViewController" id="dBd-sy-gLI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzi-iM-efk" userLabel="First Responder" sceneMemberID="firstResponder"/>
