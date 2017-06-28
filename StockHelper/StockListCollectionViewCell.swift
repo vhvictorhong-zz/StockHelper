@@ -18,9 +18,12 @@ class StockListCollectionViewCell: UICollectionViewCell {
     
     func setData(_ stockData: AlphaStock) {
         
+        let currentPrice = Double(round(100*stockData.currentPrice!)/100)
+        let priceChange = Double(round(100*stockData.priceChange!)/100)
+        
         companyLabel.text = stockData.symbol
-        priceLabel.text = String(describing: stockData.currentPrice!)
-        //amountChangeLabel.text = String(describing: stockData.priceChange)
+        priceLabel.text = String(describing: currentPrice)
+        amountChangeLabel.text = String(describing: priceChange)
         percentageChangeLabel.text = stockData.percentageChange
         
     }
