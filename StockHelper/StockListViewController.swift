@@ -138,15 +138,23 @@ class StockListViewController: UIViewController {
         self.present(authViewController, animated: true, completion: nil)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showDetailVC" {
+            if let vc = segue.destination as? DetailViewController {
+                let indexPath = sender as! IndexPath
+                vc.stockSymbol = userList[indexPath.row]
+            }
+        }
+        
     }
-    */
+ 
 
 }
 
@@ -182,6 +190,12 @@ extension StockListViewController: UICollectionViewDataSource, UICollectionViewD
         //cell?.companyLabel.text = "\(indexPath.row)"
         
         return cell!
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showDetailVC", sender: indexPath)
         
     }
     
