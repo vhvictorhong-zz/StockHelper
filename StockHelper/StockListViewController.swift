@@ -52,6 +52,16 @@ class StockListViewController: UIViewController {
     }
     
     @IBAction func signoutAction(_ sender: Any) {
+        
+        userList.append("NFLX")
+        userList.append("NFLX")
+        
+        let set = Set(userList)
+        
+        userList = Array(set)
+        
+        ref.child("user").child((user?.uid)!).child("list").setValue(userList)
+        
     }
 
     
@@ -99,14 +109,27 @@ class StockListViewController: UIViewController {
                     self.collectionView.reloadData()
                 })
                 
-//                StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
-//                    self.watchList[list] = stock
-//                    self.collectionView.reloadData()
-//                })
             }
             
         }
         
+        _refHandle = ref.child("user").child((user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+            
+            let listSnapshot: FIRDataSnapshot! = snapshot
+            let list = listSnapshot.value as! [String]
+            self.userList = list
+            
+            for list in self.userList {
+                
+                AlphaStockManager.fetchRealTimeStock(term: list, completion: { (stock) in
+                    self.watchList[list] = stock
+                    self.collectionView.reloadData()
+                })
+                
+            }
+            
+        }
+
     }
     
     // MARK: Sign In and Out

@@ -21,6 +21,13 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         navigationItem.title = stockSymbol
+        let btn1 = UIButton(type: UIButtonType.contactAdd)
+        btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        
+        btn1.addTarget(self, action: #selector(DetailViewController.addToList), for: .touchUpInside)
+        let item1 = UIBarButtonItem(customView: btn1)
+        
+        navigationItem.setRightBarButton(item1, animated: true)
         
         collectionView.register(UINib(nibName: "StockDataCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockDataCell")
         StockManager.fetchStockForSymbol(symbol: stockSymbol) { (stock) in
@@ -40,6 +47,11 @@ class DetailViewController: UIViewController {
         
     }
     
+    func addToList() {
+        
+        print("hey")
+        
+    }
     /*
     // MARK: - Navigation
 
