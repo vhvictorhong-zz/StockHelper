@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     var stockSymbol = String()
     var stock: Stock?
     
+    let singleton = Singleton.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +50,15 @@ class DetailViewController: UIViewController {
     
     func addToList() {
         
-        print("hey")
+        singleton.userList.append(stockSymbol)
+        
+        let set = Set(singleton.userList)
+        singleton.userList = Array(set)
+        
+        singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").setValue(singleton.userList)
         
     }
+    
     /*
     // MARK: - Navigation
 

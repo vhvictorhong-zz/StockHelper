@@ -17,12 +17,8 @@ class StockListViewController: UIViewController {
     @IBOutlet weak var loginButton: UIBarButtonItem!
     @IBOutlet weak var signoutButton: UIBarButtonItem!
     
-//    var userList: [String] = []
-//    var watchList: [String: AlphaStock] = [String: AlphaStock]()
-    var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
-    var user: FIRUser?
     var displayName = "Anonymous"
     
     let singleton = Singleton.sharedInstance
@@ -79,8 +75,8 @@ class StockListViewController: UIViewController {
             //check if there is a current user
             if let activeUser = user {
                 //check if the current app user is the current FIRUser
-                if self.user != activeUser {
-                    self.user = activeUser
+                if self.singleton.user != activeUser {
+                    self.singleton.user = activeUser
                     self.signedInStatus(isSignedIn: true)
                     let name = user!.email!.components(separatedBy: "@")[0]
                     self.displayName = name
@@ -97,7 +93,7 @@ class StockListViewController: UIViewController {
     func configureDatabase() {
         
         singleton.ref = FIRDatabase.database().reference()
-        _refHandle = singleton.ref?.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
@@ -124,7 +120,7 @@ class StockListViewController: UIViewController {
             
         }
         
-        _refHandle = singleton.ref?.child("user").child((user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]

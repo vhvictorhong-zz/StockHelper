@@ -16,4 +16,6 @@ final class Singleton {
     var ref: FIRDatabaseReference?
     var userList: [String] = []
     var watchList: [String: AlphaStock] = [String: AlphaStock]()
+    var user: FIRUser?
+    
 }
