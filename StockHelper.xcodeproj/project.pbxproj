@@ -26,6 +26,9 @@
 		2B7CFD841EC29110007C67C8 /* StockListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */; };
 		2B7CFD851EC29110007C67C8 /* StockListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */; };
 		2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B837F551EB9059E001627D4 /* GoogleService-Info.plist */; };
+		2B85B06A1F2C02740006743F /* TargetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85B0681F2C02740006743F /* TargetCollectionViewCell.swift */; };
+		2B85B06B1F2C02740006743F /* TargetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B85B0691F2C02740006743F /* TargetCollectionViewCell.xib */; };
+		2B85B06D1F2C099B0006743F /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85B06C1F2C099B0006743F /* TargetViewController.swift */; };
 		2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */; };
 		2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */; };
 		2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */; };
@@ -54,6 +57,9 @@
 		2B7CFD821EC29110007C67C8 /* StockListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7CFD831EC29110007C67C8 /* StockListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B837F551EB9059E001627D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B85B0681F2C02740006743F /* TargetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B85B0691F2C02740006743F /* TargetCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TargetCollectionViewCell.xib; sourceTree = "<group>"; };
+		2B85B06C1F2C099B0006743F /* TargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLDataTableViewCell.swift; sourceTree = "<group>"; };
 		2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLDataTableViewCell.xib; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				2B43B25D1E8CA00B00703A11 /* DetailViewController.swift */,
 				2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */,
 				2B7CFD801EC29084007C67C8 /* StockListViewController.swift */,
+				2B85B06C1F2C099B0006743F /* TargetViewController.swift */,
 				2B43B24C1E8B592500703A11 /* Main.storyboard */,
 				2B43B2541E8B592500703A11 /* LaunchScreen.storyboard */,
 			);
@@ -128,6 +135,8 @@
 				2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */,
 				2B43B2671E8CA3DA00703A11 /* StockDataCollectionViewCell.swift */,
 				2B43B2681E8CA3DA00703A11 /* StockDataCollectionViewCell.xib */,
+				2B85B0681F2C02740006743F /* TargetCollectionViewCell.swift */,
+				2B85B0691F2C02740006743F /* TargetCollectionViewCell.xib */,
 			);
 			name = Cell/Nib;
 			sourceTree = "<group>";
@@ -242,6 +251,7 @@
 				2B43B24E1E8B592500703A11 /* Main.storyboard in Resources */,
 				2B837F561EB9059E001627D4 /* GoogleService-Info.plist in Resources */,
 				2B7CFD851EC29110007C67C8 /* StockListCollectionViewCell.xib in Resources */,
+				2B85B06B1F2C02740006743F /* TargetCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +318,10 @@
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
 				2B6F74711EC3894400977CF3 /* Constants.swift in Sources */,
+				2B85B06A1F2C02740006743F /* TargetCollectionViewCell.swift in Sources */,
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
 				2B43B25E1E8CA00B00703A11 /* DetailViewController.swift in Sources */,
+				2B85B06D1F2C099B0006743F /* TargetViewController.swift in Sources */,
 				2B43B2691E8CA3DA00703A11 /* StockDataCollectionViewCell.swift in Sources */,
 				2B78428B1EF85F1400EF9E18 /* AlphaStockManager.swift in Sources */,
 				2B7CFD811EC29084007C67C8 /* StockListViewController.swift in Sources */,
