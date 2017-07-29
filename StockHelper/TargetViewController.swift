@@ -12,6 +12,8 @@ class TargetViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let singleton = Singleton.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -15,6 +15,7 @@ class StockListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountChangeLabel: UILabel!
     @IBOutlet weak var percentageChangeLabel: UILabel!
+    var isPositive = true
     
     func setData(_ stockData: AlphaStock) {
         
@@ -24,6 +25,11 @@ class StockListCollectionViewCell: UICollectionViewCell {
         companyLabel.text = stockData.symbol
         priceLabel.text = String(describing: currentPrice)
         amountChangeLabel.text = String(describing: priceChange)
+        
+        if priceChange < 0 {
+            isPositive = false
+        }
+        
         //percentageChangeLabel.text = stockData.percentageChange
         
     }

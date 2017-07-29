@@ -17,14 +17,15 @@ class StockListViewController: UIViewController {
     @IBOutlet weak var loginButton: UIBarButtonItem!
     @IBOutlet weak var signoutButton: UIBarButtonItem!
     
-    var userList: [String] = []
-    var watchList: [String: AlphaStock] = [String: AlphaStock]()
+//    var userList: [String] = []
+//    var watchList: [String: AlphaStock] = [String: AlphaStock]()
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
     var user: FIRUser?
     var displayName = "Anonymous"
-
+    
+    let singleton = Singleton.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +54,14 @@ class StockListViewController: UIViewController {
     
     @IBAction func signoutAction(_ sender: Any) {
         
-        userList.append("NFLX")
-        userList.append("NFLX")
-        
-        let set = Set(userList)
-        
-        userList = Array(set)
-        
-        ref.child("user").child((user?.uid)!).child("list").setValue(userList)
+//        userList.append("NFLX")
+//        userList.append("NFLX")
+//        
+//        let set = Set(userList)
+//        
+//        userList = Array(set)
+//        
+//        ref.child("user").child((user?.uid)!).child("list").setValue(userList)
         
     }
 
@@ -95,17 +96,27 @@ class StockListViewController: UIViewController {
     
     func configureDatabase() {
         
-        ref = FIRDatabase.database().reference()
-        _refHandle = ref.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        singleton.ref = FIRDatabase.database().reference()
+        _refHandle = singleton.ref?.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
-            self.userList = list
+            self.singleton.userList = list
             
-            for list in self.userList {
+            for list in self.singleton.userList {
                 
                 AlphaStockManager.fetchRealTimeStock(term: list, completion: { (stock) in
-                    self.watchList[list] = stock
+                    self.singleton.watchList[list] = stock
+//                    var priceChangeArray: [Double] = []
+//                    for priceChange in self.watchList {
+//                        priceChangeArray.append(priceChange.value.priceChange!)
+//                    }
+                    
+                    
+//                    self.watchList[list]?.priceChange
+//                    a = a.sort { $0 > $1 }
+//                    print(a)
+                    
                     self.collectionView.reloadData()
                 })
                 
@@ -113,16 +124,16 @@ class StockListViewController: UIViewController {
             
         }
         
-        _refHandle = ref.child("user").child((user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+        _refHandle = singleton.ref?.child("user").child((user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
-            self.userList = list
+            self.singleton.userList = list
             
-            for list in self.userList {
+            for list in self.singleton.userList {
                 
                 AlphaStockManager.fetchRealTimeStock(term: list, completion: { (stock) in
-                    self.watchList[list] = stock
+                    self.singleton.watchList[list] = stock
                     self.collectionView.reloadData()
                 })
                 
@@ -172,7 +183,7 @@ class StockListViewController: UIViewController {
         if segue.identifier == "showDetailVC" {
             if let vc = segue.destination as? DetailViewController {
                 let indexPath = sender as! IndexPath
-                vc.stockSymbol = userList[indexPath.row]
+                vc.stockSymbol = singleton.userList[indexPath.row]
             }
         }
         
@@ -188,7 +199,7 @@ extension StockListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userList.count
+        return singleton.userList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -198,23 +209,27 @@ extension StockListViewController: UICollectionViewDataSource, UICollectionViewD
         cell?.stockListView.layer.borderColor = UIColor.black.cgColor
         cell?.stockListView.layer.borderWidth = 1
         
-        if indexPath.row % 2 == 0 {
-            cell?.stockListView.backgroundColor = .red
-        } else {
-            cell?.stockListView.backgroundColor = .green
-        }
-        
-        if let stock = watchList[userList[indexPath.row]] {
+        if let stock = singleton.watchList[singleton.userList[indexPath.row]] {
             cell?.setData(stock)
         } else {
             cell?.companyLabel.text = "Data still loading"
         }
 
+        if let isPositive = cell?.isPositive {
+            if isPositive {
+                cell?.stockListView.backgroundColor = .green
+            } else {
+                cell?.stockListView.backgroundColor = .red
+            }
+        }
+        
         //cell?.companyLabel.text = "\(indexPath.row)"
         
         return cell!
         
     }
+    
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
