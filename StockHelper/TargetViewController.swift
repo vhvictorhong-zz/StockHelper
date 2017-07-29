@@ -10,10 +10,14 @@ import UIKit
 
 class TargetViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        collectionView.register(UINib(nibName: "TargetCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "targetCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +25,16 @@ class TargetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewDidLayoutSubviews() {
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { fatalError("Expected the collection view to have a UICollectionViewFlowLayout") }
+        
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.itemSize.width = 100
+        layout.itemSize.height = 100
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -32,4 +45,27 @@ class TargetViewController: UIViewController {
     }
     */
 
+}
+
+extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCell", for: indexPath) as? TargetCollectionViewCell
+        
+        cell?.nameLabel.text = "\(indexPath.row)"
+        cell?.targetLabel.text = "hey"
+        
+        return cell!
+        
+    }
+    
 }

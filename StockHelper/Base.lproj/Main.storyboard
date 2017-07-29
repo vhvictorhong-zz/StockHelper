@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="-657.12143928035982"/>
         </scene>
-        <!--View Controller-->
+        <!--Target View Controller-->
         <scene sceneID="esZ-Oa-hlI">
             <objects>
-                <viewController id="G7I-EP-5wV" sceneMemberID="viewController">
+                <viewController id="G7I-EP-5wV" customClass="TargetViewController" customModule="StockHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xk7-7Z-VZ8"/>
                         <viewControllerLayoutGuide type="bottom" id="uud-SY-fz0"/>
@@ -280,11 +280,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="6sc-W3-mEa" kind="show" id="imE-ZI-k7i"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="G7I-EP-5wV" id="TQJ-Ue-jt1"/>
+                                    <outlet property="delegate" destination="G7I-EP-5wV" id="kwo-Mq-VZC"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,28 +297,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xg8-dj-5v7"/>
+                    <connections>
+                        <outlet property="collectionView" destination="CJE-5Z-bPJ" id="79J-4O-sNZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDW-tH-ebK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="-1.3493253373313345"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="QJh-KI-Dew">
-            <objects>
-                <viewController id="6sc-W3-mEa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m7C-qA-dH9"/>
-                        <viewControllerLayoutGuide type="bottom" id="4cF-IE-bje"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Oda-l2-c8F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hNc-Qt-046" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1687" y="-1"/>
         </scene>
         <!--Home-->
         <scene sceneID="Nyd-VD-4tq">
