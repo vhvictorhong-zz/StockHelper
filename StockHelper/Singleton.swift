@@ -17,5 +17,7 @@ final class Singleton {
     var userList: [String] = []
     var watchList: [String: AlphaStock] = [String: AlphaStock]()
     var user: FIRUser?
+    var targetList: [String: Double] = [:]
+    var arrayTarget: [String] = []
     
 }

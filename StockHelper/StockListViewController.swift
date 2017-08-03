@@ -146,10 +146,10 @@ class StockListViewController: UIViewController {
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.key 
-            //            self.singleton.userList = list
-            let valueList = listSnapshot.value
-            print(list)
-            print(valueList)
+            let valueList = listSnapshot.value as! Double
+            
+            self.singleton.targetList[list] = valueList
+            self.singleton.arrayTarget.append(list)
             
         }
         
@@ -157,14 +157,12 @@ class StockListViewController: UIViewController {
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.key
-//            self.singleton.userList = list
-            print(list)
+            let valueList = listSnapshot.value as! Double
+            
+            self.singleton.targetList[list] = valueList
+            self.singleton.arrayTarget.append(list)
 
-            
-            
         }
-        
-        
 
     }
     

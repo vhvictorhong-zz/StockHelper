@@ -13,13 +13,14 @@ class TargetViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let singleton = Singleton.sharedInstance
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         collectionView.register(UINib(nibName: "TargetCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "targetCell")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,10 +34,17 @@ class TargetViewController: UIViewController {
         
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.itemSize.width = 100
-        layout.itemSize.height = 100
+        layout.itemSize.width = 150
+        layout.itemSize.height = 150
         
     }
+    
+    @IBAction func refreshAction(_ sender: Any) {
+        
+        collectionView.reloadData()
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -56,15 +64,20 @@ extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        return singleton.arrayTarget.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCell", for: indexPath) as? TargetCollectionViewCell
         
-        cell?.nameLabel.text = "\(indexPath.row)"
-        cell?.targetLabel.text = "hey"
+        cell?.setData(alphaStock: singleton.arrayTarget[indexPath.row], targetList: singleton.targetList)
+        
+//        if let alphaStock = singleton.watchList[singleton.arrayTarget[indexPath.row]] {
+//            cell?.setData(alphaStock: alphaStock, targetList: singleton.targetList)
+//        }
         
         return cell!
         

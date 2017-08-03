@@ -296,7 +296,13 @@
                             <constraint firstItem="CJE-5Z-bPJ" firstAttribute="leading" secondItem="jnl-rt-nsv" secondAttribute="leading" id="yxz-9o-C8c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Xg8-dj-5v7"/>
+                    <navigationItem key="navigationItem" id="Xg8-dj-5v7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="9eX-ka-ngG">
+                            <connections>
+                                <action selector="refreshAction:" destination="G7I-EP-5wV" id="I8f-Hx-yda"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="CJE-5Z-bPJ" id="79J-4O-sNZ"/>
                     </connections>
