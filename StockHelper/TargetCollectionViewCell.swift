@@ -11,6 +11,7 @@ import UIKit
 class TargetCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
     
     override func awakeFromNib() {

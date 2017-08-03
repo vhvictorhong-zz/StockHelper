@@ -21,25 +21,42 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anp-ai-pRI">
                         <rect key="frame" x="0.0" y="0.0" width="139" height="114"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-XU-W8t">
-                                <rect key="frame" x="47" y="10" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRs-Zj-bls">
-                                <rect key="frame" x="44.5" y="51" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Td-vC-g1c">
+                                <rect key="frame" x="44.5" y="10" width="50.5" height="94"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-XU-W8t">
+                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0q-YO-Ga8">
+                                        <rect key="frame" x="0.0" y="31.5" width="50.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRs-Zj-bls">
+                                        <rect key="frame" x="0.0" y="62.5" width="50.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GRs-Zj-bls" firstAttribute="width" secondItem="fQA-XU-W8t" secondAttribute="width" id="HnM-Dz-K8O"/>
+                                    <constraint firstItem="GRs-Zj-bls" firstAttribute="height" secondItem="fQA-XU-W8t" secondAttribute="height" id="RWa-ZB-IhG"/>
+                                    <constraint firstItem="n0q-YO-Ga8" firstAttribute="width" secondItem="fQA-XU-W8t" secondAttribute="width" id="ZgE-xz-8c9"/>
+                                    <constraint firstItem="n0q-YO-Ga8" firstAttribute="height" secondItem="fQA-XU-W8t" secondAttribute="height" id="efq-Zj-Cnc"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fQA-XU-W8t" firstAttribute="centerX" secondItem="anp-ai-pRI" secondAttribute="centerX" id="CwS-BN-3Fh"/>
-                            <constraint firstItem="GRs-Zj-bls" firstAttribute="top" secondItem="fQA-XU-W8t" secondAttribute="bottom" constant="20" id="WlS-TA-a1i"/>
-                            <constraint firstItem="fQA-XU-W8t" firstAttribute="top" secondItem="anp-ai-pRI" secondAttribute="top" constant="10" id="pXf-ip-nWH"/>
-                            <constraint firstItem="GRs-Zj-bls" firstAttribute="centerX" secondItem="anp-ai-pRI" secondAttribute="centerX" id="wie-UP-S48"/>
+                            <constraint firstItem="7Td-vC-g1c" firstAttribute="top" secondItem="anp-ai-pRI" secondAttribute="top" constant="10" id="L6S-SE-wSj"/>
+                            <constraint firstAttribute="bottom" secondItem="7Td-vC-g1c" secondAttribute="bottom" constant="10" id="WWX-8Z-F33"/>
+                            <constraint firstItem="7Td-vC-g1c" firstAttribute="centerY" secondItem="anp-ai-pRI" secondAttribute="centerY" id="eel-Hd-3Lh"/>
+                            <constraint firstItem="7Td-vC-g1c" firstAttribute="centerX" secondItem="anp-ai-pRI" secondAttribute="centerX" id="gUZ-xG-NFD"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -53,6 +70,7 @@
             <size key="customSize" width="139" height="114"/>
             <connections>
                 <outlet property="nameLabel" destination="fQA-XU-W8t" id="Bik-7B-Z5J"/>
+                <outlet property="priceLabel" destination="n0q-YO-Ga8" id="khn-6y-7x6"/>
                 <outlet property="targetLabel" destination="GRs-Zj-bls" id="Qad-qA-v7j"/>
             </connections>
             <point key="canvasLocation" x="80.5" y="97"/>

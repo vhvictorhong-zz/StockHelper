@@ -57,7 +57,12 @@ class StockListViewController: UIViewController {
 //        
 //        userList = Array(set)
 //        
-//        ref.child("user").child((user?.uid)!).child("list").setValue(userList)
+//        singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").child("array").setValue(singleton.userList)
+        
+        let target = ["APPL": 54.2]
+        
+        //singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").setValue(target)
+        //singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").updateChildValues(target)
         
     }
 
@@ -93,7 +98,7 @@ class StockListViewController: UIViewController {
     func configureDatabase() {
         
         singleton.ref = FIRDatabase.database().reference()
-        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
@@ -120,7 +125,7 @@ class StockListViewController: UIViewController {
             
         }
         
-        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").observe(.childChanged) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
             let list = listSnapshot.value as! [String]
@@ -136,6 +141,30 @@ class StockListViewController: UIViewController {
             }
             
         }
+        
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+            
+            let listSnapshot: FIRDataSnapshot! = snapshot
+            let list = listSnapshot.key 
+            //            self.singleton.userList = list
+            let valueList = listSnapshot.value
+            print(list)
+            print(valueList)
+            
+        }
+        
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+            
+            let listSnapshot: FIRDataSnapshot! = snapshot
+            let list = listSnapshot.key
+//            self.singleton.userList = list
+            print(list)
+
+            
+            
+        }
+        
+        
 
     }
     
