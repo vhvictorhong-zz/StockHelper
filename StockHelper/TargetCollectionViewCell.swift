@@ -33,6 +33,8 @@ class TargetCollectionViewCell: UICollectionViewCell {
         currentPrice = Double(currentPrice).roundTo(places: 2)
         
         if targetPrice < currentPrice {
+            targetView.backgroundColor = .green
+        } else {
             targetView.backgroundColor = .red
         }
         
