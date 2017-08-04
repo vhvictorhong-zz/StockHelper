@@ -55,7 +55,13 @@ class DetailViewController: UIViewController {
         let set = Set(singleton.userList)
         singleton.userList = Array(set)
         
-        singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").setValue(singleton.userList)
+        if singleton.targetList[stockSymbol] == nil {
+            
+            singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").updateChildValues([stockSymbol: 0.0])
+            
+        }
+        
+        singleton.ref?.child("user").child((singleton.user?.uid)!).child("list").child("array").setValue(singleton.userList)
         
     }
     

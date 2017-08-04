@@ -58,6 +58,12 @@
                             <constraint firstItem="7Td-vC-g1c" firstAttribute="centerY" secondItem="anp-ai-pRI" secondAttribute="centerY" id="eel-Hd-3Lh"/>
                             <constraint firstItem="7Td-vC-g1c" firstAttribute="centerX" secondItem="anp-ai-pRI" secondAttribute="centerX" id="gUZ-xG-NFD"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -72,6 +78,7 @@
                 <outlet property="nameLabel" destination="fQA-XU-W8t" id="Bik-7B-Z5J"/>
                 <outlet property="priceLabel" destination="n0q-YO-Ga8" id="khn-6y-7x6"/>
                 <outlet property="targetLabel" destination="GRs-Zj-bls" id="Qad-qA-v7j"/>
+                <outlet property="targetView" destination="anp-ai-pRI" id="FQq-LS-NcT"/>
             </connections>
             <point key="canvasLocation" x="80.5" y="97"/>
         </collectionViewCell>

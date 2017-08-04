@@ -34,8 +34,8 @@ class TargetViewController: UIViewController {
         
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.itemSize.width = 150
-        layout.itemSize.height = 150
+        layout.itemSize.width = self.view.bounds.size.width/4
+        layout.itemSize.height = self.view.bounds.size.width/4
         
     }
     
@@ -82,5 +82,7 @@ extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell!
         
     }
+    
+    
     
 }

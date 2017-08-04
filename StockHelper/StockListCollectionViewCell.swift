@@ -15,9 +15,11 @@ class StockListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountChangeLabel: UILabel!
     @IBOutlet weak var percentageChangeLabel: UILabel!
-    var isPositive = true
     
     func setData(_ stockData: AlphaStock) {
+        
+        stockListView.layer.borderColor = UIColor.black.cgColor
+        stockListView.layer.borderWidth = 1
         
         let currentPrice = Double(stockData.currentPrice!).roundTo(places: 2)
         let priceChange = Double(stockData.priceChange!).roundTo(places: 2)
@@ -26,11 +28,13 @@ class StockListCollectionViewCell: UICollectionViewCell {
         priceLabel.text = String(describing: currentPrice)
         amountChangeLabel.text = String(describing: priceChange)
         
-        if priceChange < 0 {
-            isPositive = false
+        if (priceChange >= 0) {
+            stockListView.backgroundColor = .green
+        } else {
+            stockListView.backgroundColor = .red
         }
         
-        //percentageChangeLabel.text = stockData.percentageChange
+        percentageChangeLabel.text = stockData.percentageChange
         
     }
     

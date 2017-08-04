@@ -10,6 +10,7 @@ import UIKit
 
 class TargetCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var targetView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
@@ -17,6 +18,9 @@ class TargetCollectionViewCell: UICollectionViewCell {
     let singleton = Singleton.sharedInstance
     
     func setData(alphaStock: String, targetList: [String: Double]) {
+        
+        targetView.layer.borderColor = UIColor.black.cgColor
+        targetView.layer.borderWidth = 1
         
         guard var currentPrice = singleton.watchList[alphaStock]?.currentPrice else {
             return
@@ -27,6 +31,10 @@ class TargetCollectionViewCell: UICollectionViewCell {
         
         targetPrice = Double(targetPrice).roundTo(places: 2)
         currentPrice = Double(currentPrice).roundTo(places: 2)
+        
+        if targetPrice < currentPrice {
+            targetView.backgroundColor = .red
+        }
         
         nameLabel.text = singleton.watchList[alphaStock]?.symbol
         priceLabel.text = String(describing: currentPrice)

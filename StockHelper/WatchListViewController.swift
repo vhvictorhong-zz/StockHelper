@@ -93,15 +93,21 @@ class WatchListViewController: UIViewController {
         _refHandle = ref.child("user").child((user?.uid)!).observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             
             let listSnapshot: FIRDataSnapshot! = snapshot
-            let list = listSnapshot.value as! [String]
-            self.userList = list
+            let key = listSnapshot.key
+            let value = listSnapshot.value as! [String: AnyObject]
             
-            for list in self.userList {
-                StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
-                    self.watchList[list] = stock
-                    self.tableView.reloadData()
-                })
-            }
+            print("key: \(key)")
+            print("value: \(value)")
+            
+            
+//            self.userList = list
+//            
+//            for list in self.userList {
+//                StockManager.fetchStockForSymbol(symbol: list, completion: { (stock) in
+//                    self.watchList[list] = stock
+//                    self.tableView.reloadData()
+//                })
+//            }
             
         }
         

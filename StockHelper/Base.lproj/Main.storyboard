@@ -238,7 +238,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yeb-ve-NRn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="ed9-0H-RgN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XcB-Yk-VNN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XcB-Yk-VNN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -317,13 +317,13 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ewp-cI-Npk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="6Bo-tX-P8I"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n9A-0J-sMP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n9A-0J-sMP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="anj-qg-TgU" kind="relationship" relationship="rootViewController" id="dBd-sy-gLI"/>
+                        <segue destination="anj-qg-TgU" kind="relationship" relationship="rootViewController" id="Bnq-6O-3xL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzi-iM-efk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +336,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xlD-Vq-XRO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TargetPrice" id="WWp-6d-yTf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1U1-ZN-Ojt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1U1-ZN-Ojt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

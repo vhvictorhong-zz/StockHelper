@@ -40,8 +40,8 @@ class StockListViewController: UIViewController {
         
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.itemSize.width = 100
-        layout.itemSize.height = 100
+        layout.itemSize.width = self.view.bounds.size.width/4
+        layout.itemSize.height = self.view.bounds.size.width/4
         
     }
     
@@ -237,16 +237,6 @@ extension StockListViewController: UICollectionViewDataSource, UICollectionViewD
         } else {
             cell?.companyLabel.text = "Data still loading"
         }
-
-        if let isPositive = cell?.isPositive {
-            if isPositive {
-                cell?.stockListView.backgroundColor = .green
-            } else {
-                cell?.stockListView.backgroundColor = .red
-            }
-        }
-        
-        //cell?.companyLabel.text = "\(indexPath.row)"
         
         return cell!
         
