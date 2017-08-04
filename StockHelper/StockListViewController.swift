@@ -161,6 +161,7 @@ class StockListViewController: UIViewController {
             
             self.singleton.targetList[list] = valueList
             self.singleton.arrayTarget.append(list)
+            
 
         }
 

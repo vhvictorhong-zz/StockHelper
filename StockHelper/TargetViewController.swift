@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TargetViewController: UIViewController {
 
@@ -14,12 +15,16 @@ class TargetViewController: UIViewController {
     
     let singleton = Singleton.sharedInstance
     
+    fileprivate var _refHandle: FIRDatabaseHandle!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         collectionView.register(UINib(nibName: "TargetCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "targetCell")
+        
+        configureDatabase()
         
     }
 
@@ -45,16 +50,39 @@ class TargetViewController: UIViewController {
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "showPriceChangeVC" {
+            if let vc = segue.destination as? PriceChangeViewController {
+                let indexPath = sender as! IndexPath
 
+                guard var price = singleton.targetList[singleton.arrayTarget[indexPath.row]] else {
+                    return
+                }
+                
+                price = Double(price).roundTo(places: 2)
+                vc.price = price
+                vc.stockSymbol = singleton.arrayTarget[indexPath.row]
+            }
+        }
+        
+    }
+    
+    func configureDatabase() {
+        
+        _refHandle = singleton.ref?.child("user").child((singleton.user?.uid)!).child("targetList").observe(.childChanged) { (snapshot: FIRDataSnapshot) in
+            
+            self.collectionView.reloadData()
+            
+        }
+    }
+    
 }
 
 extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -65,7 +93,7 @@ extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return singleton.arrayTarget.count
+        return singleton.targetList.count
         
     }
     
@@ -83,6 +111,10 @@ extension TargetViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showPriceChangeVC", sender: indexPath)
+        
+    }
     
 }

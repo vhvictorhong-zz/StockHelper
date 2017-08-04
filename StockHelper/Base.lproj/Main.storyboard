@@ -238,7 +238,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yeb-ve-NRn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="ed9-0H-RgN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XcB-Yk-VNN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XcB-Yk-VNN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -305,11 +305,72 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="CJE-5Z-bPJ" id="79J-4O-sNZ"/>
+                        <segue destination="r9n-9o-GD9" kind="show" identifier="showPriceChangeVC" id="Rdb-Lq-qcY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDW-tH-ebK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="-1.3493253373313345"/>
+        </scene>
+        <!--Price Change View Controller-->
+        <scene sceneID="pJ1-I3-qVQ">
+            <objects>
+                <viewController id="r9n-9o-GD9" customClass="PriceChangeViewController" customModule="StockHelper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TN9-4g-A1i"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFA-xB-IEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mxd-bS-Fdt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-40-uVt">
+                                <rect key="frame" x="20" y="283.5" width="335" height="100.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T55-f5-C6n">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Byk-dp-q3G">
+                                        <rect key="frame" x="0.0" y="30.5" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-BQ-zQE">
+                                        <rect key="frame" x="112.5" y="70.5" width="110" height="30"/>
+                                        <state key="normal" title="Set Target Price"/>
+                                        <connections>
+                                            <action selector="setTargetPriceAction:" destination="r9n-9o-GD9" eventType="touchUpInside" id="3VK-tX-uAZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="T55-f5-C6n" secondAttribute="trailing" id="Dr9-sQ-zP9"/>
+                                    <constraint firstItem="T55-f5-C6n" firstAttribute="leading" secondItem="6sy-40-uVt" secondAttribute="leading" id="dRD-m2-vd1"/>
+                                    <constraint firstItem="Byk-dp-q3G" firstAttribute="leading" secondItem="6sy-40-uVt" secondAttribute="leading" id="fCy-VN-VDZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Byk-dp-q3G" secondAttribute="trailing" id="w2m-JS-Va9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6sy-40-uVt" firstAttribute="leading" secondItem="Mxd-bS-Fdt" secondAttribute="leading" constant="20" id="AYv-72-BSl"/>
+                            <constraint firstItem="6sy-40-uVt" firstAttribute="centerY" secondItem="Mxd-bS-Fdt" secondAttribute="centerY" id="CZ4-Yv-8hI"/>
+                            <constraint firstItem="6sy-40-uVt" firstAttribute="centerX" secondItem="Mxd-bS-Fdt" secondAttribute="centerX" id="UM4-Ke-LRQ"/>
+                            <constraint firstAttribute="trailing" secondItem="6sy-40-uVt" secondAttribute="trailing" constant="20" id="zyu-q3-E6i"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="T55-f5-C6n" id="OXH-e7-gO3"/>
+                        <outlet property="priceTextField" destination="Byk-dp-q3G" id="jSf-qr-4mU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yf3-5n-MdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="-1"/>
         </scene>
         <!--Home-->
         <scene sceneID="Nyd-VD-4tq">
@@ -317,7 +378,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ewp-cI-Npk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="6Bo-tX-P8I"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n9A-0J-sMP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n9A-0J-sMP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -336,7 +397,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xlD-Vq-XRO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TargetPrice" id="WWp-6d-yTf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1U1-ZN-Ojt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1U1-ZN-Ojt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
