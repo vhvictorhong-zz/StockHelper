@@ -15,7 +15,7 @@ final class Singleton {
     
     var ref: FIRDatabaseReference?
     var userList: [String] = []
-    var watchList: [String: AlphaStock] = [String: AlphaStock]()
+    var watchList: [String: AlphaStockStruct] = [String: AlphaStockStruct]()
     var user: FIRUser?
     var targetList: [String: Double] = [:]
     var arrayTarget: [String] = []

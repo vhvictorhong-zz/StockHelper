@@ -19,7 +19,7 @@ class WatchListViewController: UIViewController {
 
     
     var userList: [String] = []
-    var watchList: [String: Stock] = [String: Stock]()
+    var watchList: [String: StockStruct] = [String: StockStruct]()
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!

@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var stockSymbol = String()
-    var stock: Stock?
+    var stock: StockStruct?
     
     let singleton = Singleton.sharedInstance
     

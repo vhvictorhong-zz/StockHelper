@@ -18,7 +18,7 @@ struct AccessToken {
     var token_type = ""
 }
 
-struct Stock {
+struct StockStruct {
     
     var ask: String?
     var averageDailyVolume: String?
@@ -61,7 +61,7 @@ struct Stock {
     
 }
 
-struct StockDetail {
+struct StockDetailStruct {
     
     var symbol: String?
     var symbolID: Int?
@@ -85,7 +85,7 @@ struct StockDetail {
     
 }
 
-struct StockSearch {
+struct StockSearchStruct {
     
     var symbol: String?
     var symbolID: Int?
@@ -95,7 +95,7 @@ struct StockSearch {
     
 }
 
-struct MarketQuote {
+struct MarketQuoteStruct {
     
     var symbol: String?
     var symbolID: Int?
@@ -118,7 +118,7 @@ class QTStockManager {
     
     // MARK: - fetchSymbolsFromSearch
     
-    class func fetchSymbolsFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearch]) -> ()) {
+    class func fetchSymbolsFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchStruct]) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -130,14 +130,14 @@ class QTStockManager {
                     
                     if let jsonArray = resultJSON["symbols"] as? [[String: AnyObject]]{
                         
-                        var stockInfoArray = [StockSearch]()
+                        var stockInfoArray = [StockStruct]()
                         
-                        for dictionary in jsonArray {
-                            stockInfoArray.append(StockSearch(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, description: dictionary["description"] as? String, listingExchange: dictionary["listingExchange"] as? String, currency: dictionary["currency"] as? String))
-                        }
-                        
+//                        for dictionary in jsonArray {
+//                            stockInfoArray.append(StockStruct(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, description: dictionary["description"] as? String, listingExchange: dictionary["listingExchange"] as? String, currency: dictionary["currency"] as? String, bookValue: dictionary["bookValue"], changeNumeric: <#String?#>))
+//                        }
+//                        
                         DispatchQueue.main.async {
-                            completion(stockInfoArray)
+//                            completion(stockInfoArray)
                         }
                     }
                 }
@@ -147,7 +147,7 @@ class QTStockManager {
     
     // MARK: - fetchSymbolDetail
     
-    class func fetchSymbolDetail(id: Int, completion:@escaping (_ stockInfo: StockDetail) -> ()) {
+    class func fetchSymbolDetail(id: Int, completion:@escaping (_ stockInfo: StockDetailStruct) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -157,11 +157,11 @@ class QTStockManager {
                 
                 if let resultJSON = response.result.value as? [String: AnyObject] {
                     
-                    var stockInfo = StockDetail()
+                    var stockInfo = StockDetailStruct()
                     if let json = resultJSON["symbols"] as? [[String: AnyObject]] {
                         
                         for dictionary in json {
-                            stockInfo = StockDetail(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, prevDayClosePrice: dictionary["prevDayClosePrice"] as? Double, highPrice52: dictionary["highPrice52"] as? Double, lowPrice52: dictionary["lowPrice52"] as? Double, averageVol3Months: dictionary["averageVol3Months"] as? Int, averageVol20Days: dictionary["averageVol20Days"] as? Int, outstandingShares: dictionary["outstandingShares"] as? Int, eps: dictionary["eps"] as? Double, pe: dictionary["pe"] as? Double, dividend: dictionary["dividend"] as? Double, yield: dictionary["yield"] as? Double, marketCap: dictionary["marketCap"] as? Double, listingExchange: dictionary["listingExchange"] as? String, description: dictionary["description"] as? String, currency: dictionary["currency"] as? String, industrySector: dictionary["industrySector"] as? String, industryGroup: dictionary["industryGroup"] as? String, industrySubGroup: dictionary["industrySubGroup"] as? String)
+                            stockInfo = StockDetailStruct(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, prevDayClosePrice: dictionary["prevDayClosePrice"] as? Double, highPrice52: dictionary["highPrice52"] as? Double, lowPrice52: dictionary["lowPrice52"] as? Double, averageVol3Months: dictionary["averageVol3Months"] as? Int, averageVol20Days: dictionary["averageVol20Days"] as? Int, outstandingShares: dictionary["outstandingShares"] as? Int, eps: dictionary["eps"] as? Double, pe: dictionary["pe"] as? Double, dividend: dictionary["dividend"] as? Double, yield: dictionary["yield"] as? Double, marketCap: dictionary["marketCap"] as? Double, listingExchange: dictionary["listingExchange"] as? String, description: dictionary["description"] as? String, currency: dictionary["currency"] as? String, industrySector: dictionary["industrySector"] as? String, industryGroup: dictionary["industryGroup"] as? String, industrySubGroup: dictionary["industrySubGroup"] as? String)
                         }
                         
                         DispatchQueue.main.async {
@@ -176,7 +176,7 @@ class QTStockManager {
     
     // MARK: - fetchMarketWithID
     
-    class func fetchMarketID(id: Int, completion:@escaping (_ marketInfo: MarketQuote) -> ()) {
+    class func fetchMarketID(id: Int, completion:@escaping (_ marketInfo: MarketQuoteStruct) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -186,11 +186,11 @@ class QTStockManager {
                 
                 if let resultJSON = response.result.value as? [String: AnyObject] {
                     
-                    var marketInfo = MarketQuote()
+                    var marketInfo = MarketQuoteStruct()
                     if let json = resultJSON["quotes"] as? [[String: AnyObject]] {
                         
                         for dictionary in json {
-                            marketInfo = MarketQuote(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, bidPrice: dictionary["bidPrice"] as? Double, bidSize: dictionary["bidSize"] as? Int, askPrice: dictionary["askPrice"] as? Double, askSize: dictionary["askSize"] as? Int, lastTradeTrHrs: dictionary["lastTradeTrHrs"] as? Double, lastTradePrice: dictionary["lastTradePrice"] as? Double, lastTradeSize: dictionary["lastTradeSize"] as? Double, volume: dictionary["volume"] as? Int, openPrice: dictionary["openPrice"] as? Double, highPrice: dictionary["highPrice"] as? Double, lowPrice: dictionary["lowPrice"] as? Double, delay: dictionary["delay"] as? Double)
+                            marketInfo = MarketQuoteStruct(symbol: dictionary["symbol"] as? String, symbolID: dictionary["symbolId"] as? Int, bidPrice: dictionary["bidPrice"] as? Double, bidSize: dictionary["bidSize"] as? Int, askPrice: dictionary["askPrice"] as? Double, askSize: dictionary["askSize"] as? Int, lastTradeTrHrs: dictionary["lastTradeTrHrs"] as? Double, lastTradePrice: dictionary["lastTradePrice"] as? Double, lastTradeSize: dictionary["lastTradeSize"] as? Double, volume: dictionary["volume"] as? Int, openPrice: dictionary["openPrice"] as? Double, highPrice: dictionary["highPrice"] as? Double, lowPrice: dictionary["lowPrice"] as? Double, delay: dictionary["delay"] as? Double)
                         }
                         
                         DispatchQueue.main.async {

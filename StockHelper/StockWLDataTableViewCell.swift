@@ -15,7 +15,7 @@ class StockWLDataTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var percentChangeLabel: UILabel!
     
-    func setData(_ stockData: Stock) {
+    func setData(_ stockData: StockStruct) {
         
         symbolLabel.text = stockData.symbol
         companyLabel.text = stockData.companyName

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-struct StockSearchResult {
+struct StockSearchResultStruct {
     var symbol: String?
     var name: String?
     var exchange: String?
@@ -20,7 +20,7 @@ class StockManager {
     
 // MARK: - fetchStocksFromSearch
     
-    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResult]) -> ()) {
+    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResultStruct]) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -32,9 +32,9 @@ class StockManager {
                     
                     if let jsonArray = (resultJSON["ResultSet"] as! [String : AnyObject])["Result"] as? [[String : String]] {
                         
-                        var stockInfoArray = [StockSearchResult]()
+                        var stockInfoArray = [StockSearchResultStruct]()
                         for dictionary in jsonArray {
-                            stockInfoArray.append(StockSearchResult(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
+                            stockInfoArray.append(StockSearchResultStruct(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
                         }
                         
                         DispatchQueue.main.async {
@@ -49,7 +49,7 @@ class StockManager {
     
 // MARK: - fetchStockForSymbol
     
-    class func fetchStockForSymbol(symbol: String, completion:@escaping (_ stock: Stock) -> ()) {
+    class func fetchStockForSymbol(symbol: String, completion:@escaping (_ stock: StockStruct) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -101,7 +101,7 @@ class StockManager {
                         dataFields.append(["52w High" : stockData["YearHigh"] as? String ?? "N/A"])
                         dataFields.append(["52w Low" : stockData["YearLow"] as? String ?? "N/A"])
                         
-                        let stock = Stock(
+                        let stock = StockStruct(
                             ask: dataFields[0].values.first,
                             averageDailyVolume: dataFields[1].values.first,
                             bid: dataFields[2].values.first,

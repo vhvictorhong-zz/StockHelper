@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-struct AlphaStock {
+struct AlphaStockStruct {
     
     var symbol: String?
     var exchangeName: String?
@@ -29,7 +29,7 @@ class AlphaStockManager {
     
     // MARK: - fetchRealTimeStock
     
-    class func fetchRealTimeStock(term: String, completion:@escaping (_ stockInfo: AlphaStock) -> ()) {
+    class func fetchRealTimeStock(term: String, completion:@escaping (_ stockInfo: AlphaStockStruct) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -53,7 +53,7 @@ class AlphaStockManager {
                         let volume = json["10. Volume (Current Trading Day)"] as! String
                         let lastUpdated = json["11. Last Updated"] as! String
                         
-                        let stockInfo = AlphaStock(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
+                        let stockInfo = AlphaStockStruct(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
                         
                         
                         DispatchQueue.main.async {
@@ -65,7 +65,7 @@ class AlphaStockManager {
         }
     }
     
-    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResult]) -> ()) {
+    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResultStruct]) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -77,9 +77,9 @@ class AlphaStockManager {
                     
                     if let jsonArray = (resultJSON["ResultSet"] as! [String : AnyObject])["Result"] as? [[String : String]] {
                         
-                        var stockInfoArray = [StockSearchResult]()
+                        var stockInfoArray = [StockSearchResultStruct]()
                         for dictionary in jsonArray {
-                            stockInfoArray.append(StockSearchResult(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
+                            stockInfoArray.append(StockSearchResultStruct(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
                         }
                         
                         DispatchQueue.main.async {
@@ -94,7 +94,7 @@ class AlphaStockManager {
     
     // MARK: - fetchStockForSymbol
     
-    class func fetchStockForSymbol(symbol: String, completion:@escaping (_ stock: Stock) -> ()) {
+    class func fetchStockForSymbol(symbol: String, completion:@escaping (_ stock: StockStruct) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -146,7 +146,7 @@ class AlphaStockManager {
                         dataFields.append(["52w High" : stockData["YearHigh"] as? String ?? "N/A"])
                         dataFields.append(["52w Low" : stockData["YearLow"] as? String ?? "N/A"])
                         
-                        let stock = Stock(
+                        let stock = StockStruct(
                             ask: dataFields[0].values.first,
                             averageDailyVolume: dataFields[1].values.first,
                             bid: dataFields[2].values.first,

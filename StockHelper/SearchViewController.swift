@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    var searchResults: [StockSearchResult] = []
+    var searchResults: [StockSearchResultStruct] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
