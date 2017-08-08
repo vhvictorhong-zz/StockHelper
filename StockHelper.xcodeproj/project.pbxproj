@@ -31,6 +31,7 @@
 		2B85B06D1F2C099B0006743F /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85B06C1F2C099B0006743F /* TargetViewController.swift */; };
 		2B85B06F1F2D00A70006743F /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85B06E1F2D00A70006743F /* Singleton.swift */; };
 		2B9D31F81F351A2A0086947E /* PriceChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D31F71F351A2A0086947E /* PriceChangeViewController.swift */; };
+		2BBC5A731F3A365200321920 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC5A721F3A365200321920 /* StockModel.swift */; };
 		2BBFD9C71E94260C0098B5D7 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */; };
 		2BBFD9CE1E9428300098B5D7 /* StockWLDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */; };
 		2BBFD9CF1E9428300098B5D7 /* StockWLDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */; };
@@ -64,6 +65,7 @@
 		2B85B06C1F2C099B0006743F /* TargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		2B85B06E1F2D00A70006743F /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		2B9D31F71F351A2A0086947E /* PriceChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChangeViewController.swift; sourceTree = "<group>"; };
+		2BBC5A721F3A365200321920 /* StockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		2BBFD9C61E94260C0098B5D7 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		2BBFD9CC1E9428300098B5D7 /* StockWLDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockWLDataTableViewCell.swift; sourceTree = "<group>"; };
 		2BBFD9CD1E9428300098B5D7 /* StockWLDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockWLDataTableViewCell.xib; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				2B43B26D1E8D688400703A11 /* StockManager.swift */,
 				2B6F746E1EC3877300977CF3 /* QTStockManager.swift */,
 				2B78428A1EF85F1400EF9E18 /* AlphaStockManager.swift */,
+				2BBC5A721F3A365200321920 /* StockModel.swift */,
 				2B6F74701EC3894400977CF3 /* Constants.swift */,
 				2B85B06E1F2D00A70006743F /* Singleton.swift */,
 			);
@@ -324,6 +327,7 @@
 				2B43B2511E8B592500703A11 /* StockHelper.xcdatamodeld in Sources */,
 				2B43B2491E8B592500703A11 /* AppDelegate.swift in Sources */,
 				2B6F74711EC3894400977CF3 /* Constants.swift in Sources */,
+				2BBC5A731F3A365200321920 /* StockModel.swift in Sources */,
 				2B85B06A1F2C02740006743F /* TargetCollectionViewCell.swift in Sources */,
 				2B43B26E1E8D688400703A11 /* StockManager.swift in Sources */,
 				2B9D31F81F351A2A0086947E /* PriceChangeViewController.swift in Sources */,
