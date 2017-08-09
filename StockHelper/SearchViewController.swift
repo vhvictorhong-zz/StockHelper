@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    var searchResults: [StockSearchResultStruct] = []
+    var searchResults: [StockModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
     
     func searchStocks(_ searchText: String) {
         
-        StockManager.fetchStocksFromSearch(term: searchText) { (stockInfoArray) in
+        AlphaStockManager.fetchStocksFromSearch(term: searchText) { (stockInfoArray) in
             
             self.searchResults = stockInfoArray
             self.tableView.reloadData()
@@ -72,11 +72,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as! StockTableViewCell
         
-        cell.symbolLabel.text = searchResults[indexPath.row].symbol
-        cell.companyLabel.text = searchResults[indexPath.row].name
-        let exchange = searchResults[indexPath.row].exchange!
-        let assetType = searchResults[indexPath.row].assetType!
-        cell.infoLabel.text = exchange + "  |  " + assetType
+        cell.setData(stockModel: searchResults[indexPath.row])
         
         return cell
         

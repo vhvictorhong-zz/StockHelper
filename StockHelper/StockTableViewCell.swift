@@ -14,6 +14,16 @@ class StockTableViewCell: UITableViewCell {
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
+    func setData(stockModel: StockModel) {
+    
+        symbolLabel.text = stockModel.symbol
+        companyLabel.text = stockModel.name
+        
+        if let exchangeName = stockModel.exchangeName, let assetType = stockModel.assetType {
+            infoLabel.text = exchangeName + "  |  " + assetType
+        }
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

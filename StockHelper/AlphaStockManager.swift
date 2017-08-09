@@ -56,8 +56,6 @@ class AlphaStockManager {
                         }
                         
                         let stockInfo = StockModel.init(withAlphaRealTime: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice)!, openPrice: Double(openPrice)!, highPrice: Double(highPrice)!, lowPrice: Double(lowPrice)!, closePrice: Double(closePrice)!, priceChange: Double(priceChange)!, percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
-//                        let stockInfo = AlphaStockStruct(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
-                        
                         
                         DispatchQueue.main.async {
                             completion(stockInfo)
@@ -68,7 +66,7 @@ class AlphaStockManager {
         }
     }
     
-    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockSearchResultStruct]) -> ()) {
+    class func fetchStocksFromSearch(term: String, completion:@escaping (_ stockInfoArray: [StockModel]) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -80,9 +78,16 @@ class AlphaStockManager {
                     
                     if let jsonArray = (resultJSON["ResultSet"] as! [String : AnyObject])["Result"] as? [[String : String]] {
                         
-                        var stockInfoArray = [StockSearchResultStruct]()
+                        var stockInfoArray = [StockModel]()
                         for dictionary in jsonArray {
-                            stockInfoArray.append(StockSearchResultStruct(symbol: dictionary["symbol"], name: dictionary["name"], exchange: dictionary["exchDisp"], assetType: dictionary["typeDisp"]))
+                            guard let symbol = dictionary["symbol"],
+                                let name = dictionary["name"],
+                                let exchangeName = dictionary["exchDisp"],
+                                let assetType = dictionary["typeDisp"] else {
+                                    return
+                                    
+                            }
+                            stockInfoArray.append(StockModel.init(withSearhResult: symbol, name: name, exchangeName: exchangeName, assetType: assetType))
                         }
                         
                         DispatchQueue.main.async {
