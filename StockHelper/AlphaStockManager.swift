@@ -29,7 +29,7 @@ class AlphaStockManager {
     
     // MARK: - fetchRealTimeStock
     
-    class func fetchRealTimeStock(term: String, completion:@escaping (_ stockInfo: AlphaStockStruct) -> ()) {
+    class func fetchRealTimeStock(term: String, completion:@escaping (_ stockInfo: StockModel) -> ()) {
         
         DispatchQueue.global(qos: .default).async {
             
@@ -41,19 +41,22 @@ class AlphaStockManager {
                     
                     if let json = resultJSON["Realtime Global Securities Quote"] {
                         
-                        let symbol = json["01. Symbol"] as! String
-                        let exchangeName = json["02. Exchange Name"] as! String
-                        let currentPrice = json["03. Latest Price"] as! String
-                        let openPrice = json["04. Open (Current Trading Day)"] as! String
-                        let highPrice = json["05. High (Current Trading Day)"] as! String
-                        let lowPrice = json["06. Low (Current Trading Day)"] as! String
-                        let closePrice = json["07. Close (Previous Trading Day)"] as! String
-                        let priceChange = json["08. Price Change"] as! String
-                        let percentageChange = json["09. Price Change Percentage"] as! String
-                        let volume = json["10. Volume (Current Trading Day)"] as! String
-                        let lastUpdated = json["11. Last Updated"] as! String
+                        guard let symbol = json["01. Symbol"] as? String,
+                            let exchangeName = json["02. Exchange Name"] as? String,
+                            let currentPrice = json["03. Latest Price"] as? String,
+                            let openPrice = json["04. Open (Current Trading Day)"] as? String,
+                            let highPrice = json["05. High (Current Trading Day)"] as? String,
+                            let lowPrice = json["06. Low (Current Trading Day)"] as? String,
+                            let closePrice = json["07. Close (Previous Trading Day)"] as? String,
+                            let priceChange = json["08. Price Change"] as? String,
+                            let percentageChange = json["09. Price Change Percentage"] as? String,
+                            let volume = json["10. Volume (Current Trading Day)"] as? String,
+                            let lastUpdated = json["11. Last Updated"] as? String else {
+                                return
+                        }
                         
-                        let stockInfo = AlphaStockStruct(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
+                        let stockInfo = StockModel.init(withAlphaRealTime: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice)!, openPrice: Double(openPrice)!, highPrice: Double(highPrice)!, lowPrice: Double(lowPrice)!, closePrice: Double(closePrice)!, priceChange: Double(priceChange)!, percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
+//                        let stockInfo = AlphaStockStruct(symbol: symbol, exchangeName: exchangeName, currentPrice: Double(currentPrice), openPrice: Double(openPrice), highPrice: Double(highPrice), lowPrice: Double(lowPrice), closePrice: Double(closePrice), priceChange: Double(priceChange), percentageChange: percentageChange, volume: volume, lastUpdated: lastUpdated)
                         
                         
                         DispatchQueue.main.async {

@@ -16,7 +16,7 @@ class StockListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var amountChangeLabel: UILabel!
     @IBOutlet weak var percentageChangeLabel: UILabel!
     
-    func setData(_ stockData: AlphaStockStruct) {
+    func setData(_ stockData: StockModel) {
         
         stockListView.layer.borderColor = UIColor.black.cgColor
         stockListView.layer.borderWidth = 1
