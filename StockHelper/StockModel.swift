@@ -67,6 +67,7 @@ class StockModel: NSObject {
 //    var volume: String?
     var yearHigh: String?
     var yearLow: String?
+    var dataFields: [[String: String]]?
     
     init(withAlphaRealTime symbol: String, exchangeName: String, currentPrice: Double, openPrice: Double, highPrice: Double, lowPrice: Double, closePrice: Double, priceChange: Double, percentageChange: String, volume: String, lastUpdated: String) {
         
@@ -93,7 +94,7 @@ class StockModel: NSObject {
         
     }
     
-    init(withYahooStock ask: String, averageDailyVolume: String, bid: String, bookValue: String, changeNumeric: String, changePercent: String, dayHigh: String, dayLow: String, dividendShare: String, dividendYield: String, ebitda: String, epsEstimateCurrentYear: String, epsEstimateNextQtr: String, epsEstimateNextYr: String, eps: String, fiftydayMovingAverage: String, lastTradeDate: String, last: String, lastTradeTime: String, lastTradePrice: String, marketCap: String, companyName: String, oneYearTarget: String, open: String, pegRatio: String, peRatio: String, previousClose: String, priceBook: String, priceSales: String, shortRatio: String, stockExchange: String, symbol: String, twoHundreddayMovingAverage: String, volume: String, yearHigh: String, yearLow: String) {
+    init(withYahooStock ask: String, averageDailyVolume: String, bid: String, bookValue: String, changeNumeric: String, changePercent: String, dayHigh: String, dayLow: String, dividendShare: String, dividendYield: String, ebitda: String, epsEstimateCurrentYear: String, epsEstimateNextQtr: String, epsEstimateNextYr: String, eps: String, fiftydayMovingAverage: String, lastTradeDate: String, last: String, lastTradeTime: String, lastTradePrice: String, marketCap: String, companyName: String, oneYearTarget: String, open: String, pegRatio: String, peRatio: String, previousClose: String, priceBook: String, priceSales: String, shortRatio: String, stockExchange: String, symbol: String, twoHundreddayMovingAverage: String, volume: String, yearHigh: String, yearLow: String, dataFields: [[String: String]]) {
         
         self.ask = ask
         self.averageDailyVolume = averageDailyVolume
@@ -131,6 +132,7 @@ class StockModel: NSObject {
         self.volume = volume
         self.yearHigh = yearHigh
         self.yearLow = yearLow
+        self.dataFields = dataFields
         
     }
 

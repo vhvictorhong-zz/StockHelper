@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var stockSymbol = String()
-    var stock: StockStruct?
+    var stock: StockModel?
     
     let singleton = Singleton.sharedInstance
     
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         navigationItem.setRightBarButton(item1, animated: true)
         
         collectionView.register(UINib(nibName: "StockDataCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "stockDataCell")
-        StockManager.fetchStockForSymbol(symbol: stockSymbol) { (stock) in
+        AlphaStockManager.fetchStockForSymbol(symbol: stockSymbol) { (stock) in
             
             self.stock = stock
             self.collectionView.reloadData()
@@ -97,7 +97,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stockDataCell", for: indexPath) as! StockDataCollectionViewCell
         
-        cell.setData(stock!.dataFields[(indexPath.section * 2) + indexPath.row])
+        cell.setData((stock!.dataFields?[(indexPath.section * 2) + indexPath.row])!)
         
         return cell
         
